@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		107D93B11CD9AEF300EA94F1 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 107D93B01CD9AEF300EA94F1 /* MessageUI.framework */; };
+		4B0942F62DE5D4F46A1A5B65 /* Pods_OliveAndGoldUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2E59E2DE13FFBEB7FBE3210 /* Pods_OliveAndGoldUITests.framework */; };
 		75282E781CCFCBB0006FCFA1 /* QuestionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75282E771CCFCBB0006FCFA1 /* QuestionVC.swift */; };
 		753CA9991CC6B65900816DFA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75C8F1DF1CBD75C100125AD4 /* Main.storyboard */; };
 		7568BACC1CD279B700D22B89 /* WebviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7568BACB1CD279B700D22B89 /* WebviewVC.swift */; };
@@ -24,6 +25,9 @@
 		D671CBB91E01B9BC008F04E1 /* StaffMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = D671CBB71E01B9BC008F04E1 /* StaffMember.swift */; };
 		D671CBBE1E01BA6A008F04E1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D671CBBD1E01BA6A008F04E1 /* Extensions.swift */; };
 		D671CBC21E01BD6B008F04E1 /* Questions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D671CBC11E01BD6B008F04E1 /* Questions.swift */; };
+		EDD34E391E22D700006F1AF2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EDD34E381E22D700006F1AF2 /* GoogleService-Info.plist */; };
+		EF8B98D021DA7D8C64AC895D /* Pods_OliveAndGold.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE48E69271D39D139A33954A /* Pods_OliveAndGold.framework */; };
+		FDD0607544BB338CA9D1DF1F /* Pods_OliveAndGoldTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 703E7EE63B6549F147CCF0AB /* Pods_OliveAndGoldTests.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,6 +49,12 @@
 
 /* Begin PBXFileReference section */
 		107D93B01CD9AEF300EA94F1 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
+		151BA9A0D662583F0292E67A /* Pods-OliveAndGoldTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OliveAndGoldTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OliveAndGoldTests/Pods-OliveAndGoldTests.release.xcconfig"; sourceTree = "<group>"; };
+		17A6CB0847A7A8CCB89868A5 /* Pods-OliveAndGoldUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OliveAndGoldUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OliveAndGoldUITests/Pods-OliveAndGoldUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		1BD3569B049F3660B0FBB52E /* Pods-OliveAndGoldUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OliveAndGoldUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-OliveAndGoldUITests/Pods-OliveAndGoldUITests.release.xcconfig"; sourceTree = "<group>"; };
+		508B16B5FE0EE60AE718BD42 /* Pods-OliveAndGold.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OliveAndGold.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OliveAndGold/Pods-OliveAndGold.debug.xcconfig"; sourceTree = "<group>"; };
+		695B78470EFC2BDAC7DDAFB4 /* Pods-OliveAndGold.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OliveAndGold.release.xcconfig"; path = "Pods/Target Support Files/Pods-OliveAndGold/Pods-OliveAndGold.release.xcconfig"; sourceTree = "<group>"; };
+		703E7EE63B6549F147CCF0AB /* Pods_OliveAndGoldTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OliveAndGoldTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		75282E771CCFCBB0006FCFA1 /* QuestionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionVC.swift; sourceTree = "<group>"; };
 		753CA9981CC6B54F00816DFA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7568BACB1CD279B700D22B89 /* WebviewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebviewVC.swift; sourceTree = "<group>"; };
@@ -60,6 +70,8 @@
 		75C8F1F71CBD75C100125AD4 /* OliveAndGoldUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OliveAndGoldUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		75C8F1FB1CBD75C100125AD4 /* OliveAndGoldUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OliveAndGoldUITests.swift; sourceTree = "<group>"; };
 		75C8F1FD1CBD75C100125AD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		C2E59E2DE13FFBEB7FBE3210 /* Pods_OliveAndGoldUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OliveAndGoldUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CFE49F536A0459A7B9EEBEC5 /* Pods-OliveAndGoldTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OliveAndGoldTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OliveAndGoldTests/Pods-OliveAndGoldTests.debug.xcconfig"; sourceTree = "<group>"; };
 		D63782CA1E025B7700E2DA3E /* StaffDisplayVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffDisplayVC.swift; sourceTree = "<group>"; };
 		D66D7FBA1E048ED200BB6ABC /* MainTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
 		D66D7FBC1E04957E00BB6ABC /* QuestionTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionTableViewCell.swift; sourceTree = "<group>"; };
@@ -67,6 +79,8 @@
 		D671CBB71E01B9BC008F04E1 /* StaffMember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StaffMember.swift; sourceTree = "<group>"; };
 		D671CBBD1E01BA6A008F04E1 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D671CBC11E01BD6B008F04E1 /* Questions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Questions.swift; sourceTree = "<group>"; };
+		DE48E69271D39D139A33954A /* Pods_OliveAndGold.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OliveAndGold.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EDD34E381E22D700006F1AF2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,6 +88,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EF8B98D021DA7D8C64AC895D /* Pods_OliveAndGold.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,6 +96,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FDD0607544BB338CA9D1DF1F /* Pods_OliveAndGoldTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -89,12 +105,23 @@
 			buildActionMask = 2147483647;
 			files = (
 				107D93B11CD9AEF300EA94F1 /* MessageUI.framework in Frameworks */,
+				4B0942F62DE5D4F46A1A5B65 /* Pods_OliveAndGoldUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		351F8A371402362D932DC1B8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				DE48E69271D39D139A33954A /* Pods_OliveAndGold.framework */,
+				703E7EE63B6549F147CCF0AB /* Pods_OliveAndGoldTests.framework */,
+				C2E59E2DE13FFBEB7FBE3210 /* Pods_OliveAndGoldUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		75C8F1CF1CBD75C000125AD4 = {
 			isa = PBXGroup;
 			children = (
@@ -103,6 +130,8 @@
 				75C8F1EF1CBD75C100125AD4 /* OliveAndGoldTests */,
 				75C8F1FA1CBD75C100125AD4 /* OliveAndGoldUITests */,
 				75C8F1D91CBD75C100125AD4 /* Products */,
+				B0D8A60490A0F14CAD7CE4C0 /* Pods */,
+				351F8A371402362D932DC1B8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -125,6 +154,7 @@
 				75C8F1DF1CBD75C100125AD4 /* Main.storyboard */,
 				75C8F1E21CBD75C100125AD4 /* Assets.xcassets */,
 				75C8F1E41CBD75C100125AD4 /* LaunchScreen.storyboard */,
+				EDD34E381E22D700006F1AF2 /* GoogleService-Info.plist */,
 				75C8F1E71CBD75C100125AD4 /* Info.plist */,
 			);
 			path = OliveAndGold;
@@ -146,6 +176,19 @@
 				75C8F1FD1CBD75C100125AD4 /* Info.plist */,
 			);
 			path = OliveAndGoldUITests;
+			sourceTree = "<group>";
+		};
+		B0D8A60490A0F14CAD7CE4C0 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				508B16B5FE0EE60AE718BD42 /* Pods-OliveAndGold.debug.xcconfig */,
+				695B78470EFC2BDAC7DDAFB4 /* Pods-OliveAndGold.release.xcconfig */,
+				CFE49F536A0459A7B9EEBEC5 /* Pods-OliveAndGoldTests.debug.xcconfig */,
+				151BA9A0D662583F0292E67A /* Pods-OliveAndGoldTests.release.xcconfig */,
+				17A6CB0847A7A8CCB89868A5 /* Pods-OliveAndGoldUITests.debug.xcconfig */,
+				1BD3569B049F3660B0FBB52E /* Pods-OliveAndGoldUITests.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		D63782CE1E026AE700E2DA3E /* Main View Controller */ = {
@@ -219,9 +262,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 75C8F2001CBD75C100125AD4 /* Build configuration list for PBXNativeTarget "OliveAndGold" */;
 			buildPhases = (
+				47964DAF03742DBE0831BAF5 /* [CP] Check Pods Manifest.lock */,
 				75C8F1D41CBD75C100125AD4 /* Sources */,
 				75C8F1D51CBD75C100125AD4 /* Frameworks */,
 				75C8F1D61CBD75C100125AD4 /* Resources */,
+				23FFE6732ADD9D01210A1BFE /* [CP] Embed Pods Frameworks */,
+				6D9D55D1482DE3D52F25411E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -236,9 +282,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 75C8F2031CBD75C100125AD4 /* Build configuration list for PBXNativeTarget "OliveAndGoldTests" */;
 			buildPhases = (
+				38F0DC9F029DFCA750D57692 /* [CP] Check Pods Manifest.lock */,
 				75C8F1E81CBD75C100125AD4 /* Sources */,
 				75C8F1E91CBD75C100125AD4 /* Frameworks */,
 				75C8F1EA1CBD75C100125AD4 /* Resources */,
+				086D088B208E6451CA8BDBB5 /* [CP] Embed Pods Frameworks */,
+				5C8E22F834326A15D7036276 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -254,9 +303,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 75C8F2061CBD75C100125AD4 /* Build configuration list for PBXNativeTarget "OliveAndGoldUITests" */;
 			buildPhases = (
+				50ED388D1165594891CD4025 /* [CP] Check Pods Manifest.lock */,
 				75C8F1F31CBD75C100125AD4 /* Sources */,
 				75C8F1F41CBD75C100125AD4 /* Frameworks */,
 				75C8F1F51CBD75C100125AD4 /* Resources */,
+				297CAE3169F3A00439F79B4E /* [CP] Embed Pods Frameworks */,
+				3D6E59BC2967188B8A2A081F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -326,6 +378,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				753CA9991CC6B65900816DFA /* Main.storyboard in Resources */,
+				EDD34E391E22D700006F1AF2 /* GoogleService-Info.plist in Resources */,
 				75C8F1E61CBD75C100125AD4 /* LaunchScreen.storyboard in Resources */,
 				75C8F1E31CBD75C100125AD4 /* Assets.xcassets in Resources */,
 			);
@@ -346,6 +399,144 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		086D088B208E6451CA8BDBB5 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OliveAndGoldTests/Pods-OliveAndGoldTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		23FFE6732ADD9D01210A1BFE /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OliveAndGold/Pods-OliveAndGold-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		297CAE3169F3A00439F79B4E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OliveAndGoldUITests/Pods-OliveAndGoldUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		38F0DC9F029DFCA750D57692 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		3D6E59BC2967188B8A2A081F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OliveAndGoldUITests/Pods-OliveAndGoldUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		47964DAF03742DBE0831BAF5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		50ED388D1165594891CD4025 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		5C8E22F834326A15D7036276 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OliveAndGoldTests/Pods-OliveAndGoldTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6D9D55D1482DE3D52F25411E /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OliveAndGold/Pods-OliveAndGold-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		75C8F1D41CBD75C100125AD4 /* Sources */ = {
@@ -505,6 +696,7 @@
 		};
 		75C8F2011CBD75C100125AD4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 508B16B5FE0EE60AE718BD42 /* Pods-OliveAndGold.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -523,6 +715,7 @@
 		};
 		75C8F2021CBD75C100125AD4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 695B78470EFC2BDAC7DDAFB4 /* Pods-OliveAndGold.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -541,6 +734,7 @@
 		};
 		75C8F2041CBD75C100125AD4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CFE49F536A0459A7B9EEBEC5 /* Pods-OliveAndGoldTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = OliveAndGoldTests/Info.plist;
@@ -555,6 +749,7 @@
 		};
 		75C8F2051CBD75C100125AD4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 151BA9A0D662583F0292E67A /* Pods-OliveAndGoldTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				INFOPLIST_FILE = OliveAndGoldTests/Info.plist;
@@ -569,6 +764,7 @@
 		};
 		75C8F2071CBD75C100125AD4 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 17A6CB0847A7A8CCB89868A5 /* Pods-OliveAndGoldUITests.debug.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = OliveAndGoldUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -583,6 +779,7 @@
 		};
 		75C8F2081CBD75C100125AD4 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1BD3569B049F3660B0FBB52E /* Pods-OliveAndGoldUITests.release.xcconfig */;
 			buildSettings = {
 				INFOPLIST_FILE = OliveAndGoldUITests/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
