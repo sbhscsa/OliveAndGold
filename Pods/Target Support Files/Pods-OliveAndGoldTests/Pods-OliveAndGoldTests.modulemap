@@ -1,0 +1,6 @@
+framework module Pods_OliveAndGoldTests {
+  umbrella header "Pods-OliveAndGoldTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
