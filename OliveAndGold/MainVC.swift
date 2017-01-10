@@ -17,8 +17,8 @@ class MainVC: UITableViewController, MFMailComposeViewControllerDelegate {
      */
     
     //Questions & staff fields
-    private var questions:Questions = Questions(),
-                staff:Staff = Staff(),
+    private var questions:Questions!,
+                staff:Staff!,
                 segueStaffMember:StaffMember!
     
     //Property Constants
@@ -38,6 +38,10 @@ class MainVC: UITableViewController, MFMailComposeViewControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        // Do this here to give AppDelegate's application:didFinishLaunchingWithOptions
+        // a chance to finish (Firebase configuration) before we access Firebase
+        questions = Questions(parent: self)
+        staff = Staff()
         setupUI()
     }
 
@@ -108,6 +112,13 @@ class MainVC: UITableViewController, MFMailComposeViewControllerDelegate {
             
             scrollView.addSubview(staffView)
         }
+    }
+    
+    // This is needed because the tableview will load faster than data will arrive from Firebase
+    // So in the Questions class, we call this method after the data is done loading (via a reference
+    // to this class that we pass in when creating the Questions object, above in viewDidLoad
+    func reloadTableData() {
+        self.tableView.reloadData()
     }
     
     @objc func staffPressed(sender: UITapGestureRecognizer) {
