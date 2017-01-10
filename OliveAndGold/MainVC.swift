@@ -23,7 +23,7 @@ class MainVC: UITableViewController, MFMailComposeViewControllerDelegate {
     
     //Property Constants
     private let viewHeight:Int! = 180,
-        viewWidth:Int! = 150,
+                viewWidth:Int! = 150,
     
     //color edited**
         //staffBackgroundColor:UIColor! = UIColor(red: 79/255, green: 97/255, blue: 71/255, alpha: 1),
@@ -35,6 +35,16 @@ class MainVC: UITableViewController, MFMailComposeViewControllerDelegate {
     
     //Storyboard outlets
     @IBOutlet var scrollView: UIScrollView!
+    
+    // This is needed because viewDidLoad is TOO LATE for setting 
+    // the tab bar image and title
+    // And we implement this version of init() because 
+    // it is the designated initializer of UITableViewController
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        self.tabBarItem.image = UIImage(named: "cccTabIcon")
+        self.tabBarItem.title = "CCC"
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

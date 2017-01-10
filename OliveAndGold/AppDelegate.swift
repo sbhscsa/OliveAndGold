@@ -15,8 +15,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        // Initialize Firebase
         FIRApp.configure()
+        
+        // Get the CCC tab view controller from the storyboard
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let cccTabVC = storyboard.instantiateViewController(withIdentifier: "CCCNavVC") as! UINavigationController
+        
+        // Make a tab bar controller and set its tabs
+        let tabVC = UITabBarController()
+        tabVC.viewControllers = [cccTabVC]
+        
+        // Creating the tab bar controller in code means that the window property
+        // of this class is nil, so make a new one and set it as the main window of this app
+        window = UIWindow(frame: UIScreen.main.bounds)
+        self.window!.rootViewController = tabVC
+        window?.makeKeyAndVisible()  // make this the main window and display it
+        
         return true
     }
 
