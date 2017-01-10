@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let cccTabVC = storyboard.instantiateViewController(withIdentifier: "CCCNavVC") as! UINavigationController
         
-        // Make a tab bar controller and set its tabs
+        // Make a tab bar controller and set its tabs (view controller array)
         let tabVC = UITabBarController()
         tabVC.viewControllers = [cccTabVC]
         
