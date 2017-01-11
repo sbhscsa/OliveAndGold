@@ -39,7 +39,7 @@ class MainVC: UITableViewController, MFMailComposeViewControllerDelegate {
     // This is needed because viewDidLoad is TOO LATE for setting 
     // the tab bar image and title
     // And we implement this version of init() because 
-    // it is the designated initializer of UITableViewController
+    // it is the designated initializer of the superclass (UITableViewController) to this class 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.tabBarItem.image = UIImage(named: "cccTabIcon")
