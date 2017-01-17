@@ -18,13 +18,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Initialize Firebase
         FIRApp.configure()
         
-        // Get the CCC tab view controller from the storyboard
+        // Get a reference to the storyboard
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        
+        // Get the CCC tab view controller from the storyboard
         let cccTabVC = storyboard.instantiateViewController(withIdentifier: "CCCNavVC") as! UINavigationController
+        
+        // Get the Settings tab view controller from the storyboard
+        let settingsTabVC = storyboard.instantiateViewController(withIdentifier: "SettingsVC") as! SettingsVC
         
         // Make a tab bar controller and set its tabs (view controller array)
         let tabVC = UITabBarController()
-        tabVC.viewControllers = [cccTabVC]
+        tabVC.viewControllers = [cccTabVC, settingsTabVC]
         
         // Creating the tab bar controller in code means that the window property
         // of this class is nil, so make a new one and set it as the main window of this app

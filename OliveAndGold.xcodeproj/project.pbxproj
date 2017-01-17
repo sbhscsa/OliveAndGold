@@ -25,6 +25,7 @@
 		D671CBB91E01B9BC008F04E1 /* StaffMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = D671CBB71E01B9BC008F04E1 /* StaffMember.swift */; };
 		D671CBBE1E01BA6A008F04E1 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D671CBBD1E01BA6A008F04E1 /* Extensions.swift */; };
 		D671CBC21E01BD6B008F04E1 /* Questions.swift in Sources */ = {isa = PBXBuildFile; fileRef = D671CBC11E01BD6B008F04E1 /* Questions.swift */; };
+		ED39F4491E2ED4880009B83E /* SettingsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED39F4481E2ED4880009B83E /* SettingsVC.swift */; };
 		EDD34E391E22D700006F1AF2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EDD34E381E22D700006F1AF2 /* GoogleService-Info.plist */; };
 		EF8B98D021DA7D8C64AC895D /* Pods_OliveAndGold.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE48E69271D39D139A33954A /* Pods_OliveAndGold.framework */; };
 		FDD0607544BB338CA9D1DF1F /* Pods_OliveAndGoldTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 703E7EE63B6549F147CCF0AB /* Pods_OliveAndGoldTests.framework */; };
@@ -80,6 +81,7 @@
 		D671CBBD1E01BA6A008F04E1 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 		D671CBC11E01BD6B008F04E1 /* Questions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Questions.swift; sourceTree = "<group>"; };
 		DE48E69271D39D139A33954A /* Pods_OliveAndGold.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OliveAndGold.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		ED39F4481E2ED4880009B83E /* SettingsVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingsVC.swift; sourceTree = "<group>"; };
 		EDD34E381E22D700006F1AF2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -150,6 +152,7 @@
 			children = (
 				75C8F1DB1CBD75C100125AD4 /* AppDelegate.swift */,
 				EDBCF9861E2587B40005CF24 /* CCC */,
+				ED39F4471E2ED46D0009B83E /* Settings */,
 				75C8F1DF1CBD75C100125AD4 /* Main.storyboard */,
 				75C8F1E21CBD75C100125AD4 /* Assets.xcassets */,
 				75C8F1E41CBD75C100125AD4 /* LaunchScreen.storyboard */,
@@ -252,6 +255,14 @@
 				D671CBC11E01BD6B008F04E1 /* Questions.swift */,
 			);
 			name = "College Questions";
+			sourceTree = "<group>";
+		};
+		ED39F4471E2ED46D0009B83E /* Settings */ = {
+			isa = PBXGroup;
+			children = (
+				ED39F4481E2ED4880009B83E /* SettingsVC.swift */,
+			);
+			name = Settings;
 			sourceTree = "<group>";
 		};
 		EDBCF9861E2587B40005CF24 /* CCC */ = {
@@ -556,6 +567,7 @@
 				D671CBBE1E01BA6A008F04E1 /* Extensions.swift in Sources */,
 				7568BACC1CD279B700D22B89 /* WebviewVC.swift in Sources */,
 				75282E781CCFCBB0006FCFA1 /* QuestionVC.swift in Sources */,
+				ED39F4491E2ED4880009B83E /* SettingsVC.swift in Sources */,
 				D63782CB1E025B7700E2DA3E /* StaffDisplayVC.swift in Sources */,
 				75C8F1DE1CBD75C100125AD4 /* MainVC.swift in Sources */,
 				D671CBC21E01BD6B008F04E1 /* Questions.swift in Sources */,
