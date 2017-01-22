@@ -50,9 +50,11 @@ class MainVC: UITableViewController, MFMailComposeViewControllerDelegate {
         super.viewDidLoad()
         // Do this here to give AppDelegate's application:didFinishLaunchingWithOptions
         // a chance to finish (Firebase configuration) before we access Firebase
+        
+        // both of these classes get a reference to self so they can call appropriate setup methods
+        // once the data has finished loading over the network (which takes in indeterminate amount of time)
         questions = Questions(parent: self)
-        staff = Staff()
-        setupUI()
+        staff = Staff(parent: self)
     }
 
     override func didReceiveMemoryWarning() {
