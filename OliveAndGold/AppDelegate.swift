@@ -24,12 +24,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Get the CCC tab view controller from the storyboard
         let cccTabVC = storyboard.instantiateViewController(withIdentifier: "CCCNavVC") as! UINavigationController
         
+        // Get the Special Programs tab view controller from the storyboard
+        let specialTabVC = storyboard.instantiateViewController(withIdentifier: "SpecialNavVC") as! UINavigationController
+        
         // Get the Settings tab view controller from the storyboard
         let settingsTabVC = storyboard.instantiateViewController(withIdentifier: "SettingsVC") as! SettingsVC
         
         // Make a tab bar controller and set its tabs (view controller array)
         let tabVC = UITabBarController()
-        tabVC.viewControllers = [cccTabVC, settingsTabVC]
+        tabVC.viewControllers = [cccTabVC, specialTabVC, settingsTabVC]
         
         // Creating the tab bar controller in code means that the window property
         // of this class is nil, so make a new one and set it as the main window of this app

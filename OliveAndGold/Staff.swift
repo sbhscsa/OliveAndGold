@@ -53,7 +53,7 @@ class Staff{
                 let image = staffData?["image"] as! String
                 let ext = staffData?["ext"] as! Int
                 
-                print(staffData)
+//                print(staffData)
                 
                 self.CreateStaffMember(name: name, email: email, title: title, education: education, image: UIImage(named: image)!, ext: "\(ext)")
                 
