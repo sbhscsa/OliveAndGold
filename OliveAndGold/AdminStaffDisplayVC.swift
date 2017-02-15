@@ -3,13 +3,13 @@
 //  OliveAndGold-Updated
 //
 //  Created by Trip Creighton on 10/28/16.
-//  Copyright © 2016 Trip Creighton. All rights reserved.
+//  Copyright © 2016 . All rights reserved.
 //
 
 import UIKit
 import MessageUI
 
-class StaffDisplayVC: UIViewController, MFMailComposeViewControllerDelegate {
+class AdminStaffDisplayVC: UIViewController, MFMailComposeViewControllerDelegate {
     //Storyboard outlets
 
     @IBOutlet var nameLabel: UILabel!,
@@ -55,6 +55,7 @@ class StaffDisplayVC: UIViewController, MFMailComposeViewControllerDelegate {
         imageView.clipsToBounds = true
         imageView.layer.cornerRadius = 8.0
         imageView.layer.borderWidth = 2.0
+        imageView.contentMode = .scaleAspectFit
         
         //color edited***
         imageView.layer.borderColor = UIColor(red: 155/255, green: 142/255, blue: 41/255, alpha: 1).cgColor
@@ -79,14 +80,14 @@ class StaffDisplayVC: UIViewController, MFMailComposeViewControllerDelegate {
         //Description: Adds the education, only if it exists
         if staffMember.GetDescription()[0] != "" {
             for (index, staffMemberDesc) in staffMember.GetDescription().enumerated() {
-                let curStaffDesc:UILabel! = UILabel(frame: CGRect(x: credentialsLabel.frame.origin.x + 3, y: (credentialsLabel.frame.origin.y + 12) + CGFloat(index * 20), width: view.frame.width, height: 50))
+                let curStaffDesc:UILabel! = UILabel(frame: CGRect(x: credentialsLabel.frame.origin.x + 3, y: (credentialsLabel.frame.origin.y + 12) + CGFloat(index * 40), width: view.frame.width-20, height: 100))
                 curStaffDesc.text = " - \(staffMemberDesc)"
                 
                 //color edited**
                 curStaffDesc.textColor = UIColor(red: 210/255, green: 178/255, blue: 76/255, alpha: 1)
                 curStaffDesc.font = UIFont(name: "HelveticaNeue", size: 16.5)
                 curStaffDesc.lineBreakMode = .byWordWrapping
-                curStaffDesc.numberOfLines = 2
+                curStaffDesc.numberOfLines = 5
                 credentialsLabel.textColor = UIColor(red: 210/255, green: 178/255, blue: 76/255, alpha: 1)
                 view.addSubview(curStaffDesc)
             }

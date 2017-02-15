@@ -1,24 +1,24 @@
 //
-//  TableOneViewController.swift
+//  AdminVC.swift
 //  OliveAndGold
-//  Created by Evan Heffernan on 4/12/16.
-//  Copyright © 2016 com.4myeecc. All rights reserved.
+//
+//  Created by Mobile on 1/20/17.
+//  Copyright © 2017 com.4myeecc. All rights reserved.
 //
 
 import UIKit
 import MessageUI
 
-class MainVC: UITableViewController, MFMailComposeViewControllerDelegate {
-   
-    /*  
-    
-        Green color is UIColor(red: 38/255, green: 57/255, blue: 30/255, alpha: 1)
-        Gold is UIColor(red: 155/255, green: 122/255, blue: 41/255, alpha: 1)
-     */
+
+class AdminVC: UITableViewController, MFMailComposeViewControllerDelegate {
+
+    /*
+    Green color is UIColor(red: 38/255, green: 57/255, blue: 30/255, alpha: 1)
+    Gold is UIColor(red: 155/255, green: 122/255, blue: 41/255, alpha: 1)
+    */
     
     //Questions & staff fields
-    private var questions:Questions!,
-                staff:Staff!,
+    private var staff:AdminStaff!,
                 segueStaffMember:StaffMember!
     
     //Property Constants
@@ -26,35 +26,26 @@ class MainVC: UITableViewController, MFMailComposeViewControllerDelegate {
                 viewWidth:Int! = 150,
     
     //color edited**
-        //staffBackgroundColor:UIColor! = UIColor(red: 79/255, green: 97/255, blue: 71/255, alpha: 1),
+    //staffBackgroundColor:UIColor! = UIColor(red: 79/255, green: 97/255, blue: 71/255, alpha: 1),
     staffBackgroundColor = UIColor(red: 155/255, green: 122/255, blue: 41/255, alpha: 1),
     nameColor:UIColor! = UIColor(red: 38/255, green: 57/255, blue: 30/255, alpha: 1),
-        backgroundColor:UIColor! = UIColor(red: 38/255, green: 57/255, blue: 30/255, alpha: 1)
-        
-
+    backgroundColor:UIColor! = UIColor(red: 38/255, green: 57/255, blue: 30/255, alpha: 1)
+    
     
     //Storyboard outlets
-    @IBOutlet var scrollView: UIScrollView!
+    @IBOutlet weak var AdminScrollView: UIScrollView!
     
-    // This is needed because viewDidLoad is TOO LATE for setting 
-    // the tab bar image and title
-    // And we implement this version of init() because 
-    // it is the designated initializer of the superclass (UITableViewController) to this class 
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
-        self.tabBarItem.image = UIImage(named: "cccTabIcon")
-        self.tabBarItem.title = "CCC"
+        self.tabBarItem.image = UIImage(named: "adminTabIcon")
+        self.tabBarItem.title = "Admin"
     }
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do this here to give AppDelegate's application:didFinishLaunchingWithOptions
-        // a chance to finish (Firebase configuration) before we access Firebase
-        
-        // both of these classes get a reference to self so they can call appropriate setup methods
-        // once the data has finished loading over the network (which takes in indeterminate amount of time)
-        questions = Questions(parent: self)
-        staff = Staff(parent: self)
+
+        staff = AdminStaff()
+        setupUI()
     }
 
     override func didReceiveMemoryWarning() {
@@ -65,23 +56,23 @@ class MainVC: UITableViewController, MFMailComposeViewControllerDelegate {
     func setupUI(){
         navigationController?.navigationBar.tintColor = UIColor(red: 155/255, green: 122/255, blue: 41/255, alpha: 1)
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"Back", style: .plain, target:nil, action:nil)
-
-        scrollView.delegate = self
-        scrollView.contentSize.height = 134
-        scrollView.contentSize.width = CGFloat(((staff.GetStaffList().count) * viewWidth))
+        
+        AdminScrollView.delegate = self
+        AdminScrollView.contentSize.height = 134
+        AdminScrollView.contentSize.width = CGFloat(((staff.GetStaffList().count) * viewWidth))
         view.backgroundColor = backgroundColor
         
         //Add a view for each new staff member
         for (index, staffMember) in staff.GetStaffList().enumerated() {
             let staffView:UIView! = UIView(),
-                staffNameLabel:UILabel! = UILabel(),
-                staffImageView:UIImageView! = UIImageView(),
-                staffJobTitle:UILabel! = UILabel()
-
+            staffNameLabel:UILabel! = UILabel(),
+            staffImageView:UIImageView! = UIImageView(),
+            staffJobTitle:UILabel! = UILabel()
+            
             //View:
             staffView.frame.size = CGSize(width: viewWidth, height: viewHeight)
             staffView.backgroundColor = staffBackgroundColor
-            staffView.frame.origin = CGPoint(x: (index * viewWidth), y: Int(scrollView.center.y - staffView.center.y))
+            staffView.frame.origin = CGPoint(x: (index * viewWidth), y: Int(AdminScrollView.center.y - staffView.center.y))
             staffView.layer.borderColor = backgroundColor.cgColor
             staffView.layer.borderWidth = 2
             staffView.layer.cornerRadius = 8
@@ -103,14 +94,14 @@ class MainVC: UITableViewController, MFMailComposeViewControllerDelegate {
             staffImageView.clipsToBounds = true
             staffImageView.contentMode = .scaleAspectFit
             
-
+            
             //Name:
             staffNameLabel.textColor = nameColor
             staffNameLabel.text = staffMember.GetName()
             staffNameLabel.font = UIFont.boldSystemFont(ofSize: 16)
             staffNameLabel.sizeToFit()
             staffNameLabel.frame.origin = CGPoint(x: CGFloat(viewWidth / 2) - (staffNameLabel.bounds.width / 2), y: staffImageView.bounds.height + 10)
-
+            
             //Job Title:
             staffJobTitle.text = staffMember.GetJobTitle()
             staffJobTitle.font = UIFont(name: "Arial", size: 9)
@@ -122,62 +113,85 @@ class MainVC: UITableViewController, MFMailComposeViewControllerDelegate {
             staffView.addSubview(staffNameLabel)
             staffView.addSubview(staffJobTitle)
             
-            scrollView.addSubview(staffView)
+            AdminScrollView.addSubview(staffView)
         }
     }
     
-    // This is needed because the tableview will load faster than data will arrive from Firebase
-    // So in the Questions class, we call this method after the data is done loading (via a reference
-    // to this class that we pass in when creating the Questions object, above in viewDidLoad
-    func reloadTableData() {
-        self.tableView.reloadData()
-    }
     
     @objc func staffPressed(sender: UITapGestureRecognizer) {
         print("[DBG] Going to", staff.GetStaffList()[(sender.view?.tag)!].GetName())
         segueStaffMember = staff.GetStaffList()[(sender.view?.tag)!]
-        self.performSegue(withIdentifier: "StaffDisplayVC", sender: self)
-        
+        self.performSegue(withIdentifier: "AdminStaffDisplayVC", sender: self)
     }
     
+    // MARK: - Navigation
+    
+    // In a storyboard-based application, you will often want to do a little preparation before navigation
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print("[DBG] Going to", segue.identifier ?? "ERROR! No identifier!")
-        if segue.identifier == "QuestionVC"{
-            let questionVC = segue.destination as! QuestionVC
-            let selectedCell = sender as! MainTableViewCell
-            questionVC.questionDictonary = questions.getSection(byName: (selectedCell.sectionLabel.text)!)
-        } else if segue.identifier == "StaffDisplayVC" {
-            let staffDisplayVC = segue.destination as! StaffDisplayVC
-            staffDisplayVC.staffMember = segueStaffMember
+        // Get the new view controller using segue.destinationViewController.
+        // Pass the selected object to the new view controller.
+        if segue.identifier == "AdminStaffDisplayVC" {
+            let adminStaffDisplayVC = segue.destination as! AdminStaffDisplayVC
+            adminStaffDisplayVC.staffMember = segueStaffMember
         }
     }
-    
-    // MARK: table view methods
-    
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return questions.getSectionList().count
+
+    // MARK: - Table view data source
+
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 0
     }
-    
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return 0
+    }
+
+    /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "questionRow", for: indexPath as IndexPath) as! MainTableViewCell
-        cell.sectionLabel.text = questions.getSectionNames()[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+
+        // Configure the cell...
+
         return cell
     }
-    
-    // MARK: mail composer
-    
-    func mailComposeController(_ controller: MFMailComposeViewController, didFinishWith result: MFMailComposeResult, error: Error?) {
-        switch result{
-        case MFMailComposeResult.cancelled:
-            print("[DBG] Mail Cancelled!")
-        case MFMailComposeResult.saved:
-            print("[DBG] Result Saved!")
-        case MFMailComposeResult.sent:
-            print("[DBG] Result Sent!")
-        case MFMailComposeResult.failed:
-            print("[DBG] Mail sent failure:", error?.localizedDescription ?? "ERROR! No description for mail state!")
-        }
-        self.dismiss(animated: true, completion: nil)
+    */
+
+    /*
+    // Override to support conditional editing of the table view.
+    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
+        // Return false if you do not want the specified item to be editable.
+        return true
     }
+    */
+
+    /*
+    // Override to support editing the table view.
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            tableView.deleteRows(at: [indexPath], with: .fade)
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }    
+    }
+    */
+
+    /*
+    // Override to support rearranging the table view.
+    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
+
+    }
+    */
+
+    /*
+    // Override to support conditional rearranging of the table view.
+    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
+        // Return false if you do not want the item to be re-orderable.
+        return true
+    }
+    */
+
 
 }
