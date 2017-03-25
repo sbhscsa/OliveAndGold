@@ -18,15 +18,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Initialize Firebase
         FIRApp.configure()
         
-        // Get a reference to the storyboard
+        // Get references to the storyboards
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let adminStoryboard = UIStoryboard(name: "AdminStoryboard", bundle: nil)
+        let athleticsStoryboard = UIStoryboard(name: "Athletics", bundle: nil)
         
         // Get the Admin tab view controller from the storyboard
         let adminTabVC = adminStoryboard.instantiateViewController(withIdentifier: "AdminNavVC") as! UINavigationController
         
         // Get the CCC tab view controller from the storyboard
         let cccTabVC = storyboard.instantiateViewController(withIdentifier: "CCCNavVC") as! UINavigationController
+        
+        // Get the Athletics tab view controller from the storyboard
+        let athleticsTabVC = athleticsStoryboard.instantiateViewController(withIdentifier: "AthleticsVC") as! AthleticsViewController
         
         // Get the Special Programs tab view controller from the storyboard
         let specialTabVC = storyboard.instantiateViewController(withIdentifier: "SpecialNavVC") as! UINavigationController
@@ -36,10 +40,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         // Make a tab bar controller and set its tabs (view controller array)
         let tabVC = UITabBarController()
-        tabVC.viewControllers = [adminTabVC, cccTabVC, specialTabVC, settingsTabVC]
+        tabVC.viewControllers = [adminTabVC, cccTabVC, athleticsTabVC, specialTabVC, settingsTabVC]
         
         // Creating the tab bar controller in code means that the window property
-        // of this class is nil, so make a new one and set it as the main window of this app
+        // of this class is nil, (normally window is set to the starting VC from the storyboard)
+        // So make a new one and set it as the main window of this app
         window = UIWindow(frame: UIScreen.main.bounds)
         self.window!.rootViewController = tabVC
         window?.makeKeyAndVisible()  // make this the main window and display it

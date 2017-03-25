@@ -33,6 +33,8 @@
 		ED46452C1E53E3B10019092A /* AdminStaffDisplayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4645281E53E3B10019092A /* AdminStaffDisplayVC.swift */; };
 		ED46452D1E53E3B10019092A /* AdminStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED4645291E53E3B10019092A /* AdminStoryboard.storyboard */; };
 		ED46452E1E53E3B10019092A /* AdminVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED46452A1E53E3B10019092A /* AdminVC.swift */; };
+		ED5A4C931E849E07005988A9 /* Athletics.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED5A4C911E849E07005988A9 /* Athletics.storyboard */; };
+		ED5A4C941E849E07005988A9 /* AthleticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5A4C921E849E07005988A9 /* AthleticsViewController.swift */; };
 		EDD34E391E22D700006F1AF2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EDD34E381E22D700006F1AF2 /* GoogleService-Info.plist */; };
 		EF8B98D021DA7D8C64AC895D /* Pods_OliveAndGold.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE48E69271D39D139A33954A /* Pods_OliveAndGold.framework */; };
 		FDD0607544BB338CA9D1DF1F /* Pods_OliveAndGoldTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 703E7EE63B6549F147CCF0AB /* Pods_OliveAndGoldTests.framework */; };
@@ -96,6 +98,8 @@
 		ED4645281E53E3B10019092A /* AdminStaffDisplayVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminStaffDisplayVC.swift; sourceTree = "<group>"; };
 		ED4645291E53E3B10019092A /* AdminStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AdminStoryboard.storyboard; sourceTree = "<group>"; };
 		ED46452A1E53E3B10019092A /* AdminVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminVC.swift; sourceTree = "<group>"; };
+		ED5A4C911E849E07005988A9 /* Athletics.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Athletics.storyboard; sourceTree = "<group>"; };
+		ED5A4C921E849E07005988A9 /* AthleticsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AthleticsViewController.swift; sourceTree = "<group>"; };
 		EDD34E381E22D700006F1AF2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -166,6 +170,7 @@
 			children = (
 				75C8F1DB1CBD75C100125AD4 /* AppDelegate.swift */,
 				ED4645261E53E32B0019092A /* Admin */,
+				ED5A4C901E849DEB005988A9 /* Athlethics */,
 				EDBCF9861E2587B40005CF24 /* CCC */,
 				ED2139601E347F29006F5E9B /* SpecialPrograms */,
 				ED39F4471E2ED46D0009B83E /* Settings */,
@@ -300,6 +305,15 @@
 				ED46452A1E53E3B10019092A /* AdminVC.swift */,
 			);
 			name = Admin;
+			sourceTree = "<group>";
+		};
+		ED5A4C901E849DEB005988A9 /* Athlethics */ = {
+			isa = PBXGroup;
+			children = (
+				ED5A4C911E849E07005988A9 /* Athletics.storyboard */,
+				ED5A4C921E849E07005988A9 /* AthleticsViewController.swift */,
+			);
+			name = Athlethics;
 			sourceTree = "<group>";
 		};
 		EDBCF9861E2587B40005CF24 /* CCC */ = {
@@ -437,6 +451,7 @@
 				EDD34E391E22D700006F1AF2 /* GoogleService-Info.plist in Resources */,
 				75C8F1E61CBD75C100125AD4 /* LaunchScreen.storyboard in Resources */,
 				ED46452D1E53E3B10019092A /* AdminStoryboard.storyboard in Resources */,
+				ED5A4C931E849E07005988A9 /* Athletics.storyboard in Resources */,
 				75C8F1E31CBD75C100125AD4 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -616,6 +631,7 @@
 				D671CBC21E01BD6B008F04E1 /* Questions.swift in Sources */,
 				75C8F1DC1CBD75C100125AD4 /* AppDelegate.swift in Sources */,
 				D671CBB81E01B9BC008F04E1 /* Staff.swift in Sources */,
+				ED5A4C941E849E07005988A9 /* AthleticsViewController.swift in Sources */,
 				ED46452E1E53E3B10019092A /* AdminVC.swift in Sources */,
 				D66D7FBB1E048ED200BB6ABC /* MainTableViewCell.swift in Sources */,
 			);
