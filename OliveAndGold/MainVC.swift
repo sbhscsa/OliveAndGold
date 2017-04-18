@@ -29,7 +29,7 @@ class MainVC: UITableViewController, MFMailComposeViewControllerDelegate {
         //staffBackgroundColor:UIColor! = UIColor(red: 79/255, green: 97/255, blue: 71/255, alpha: 1),
     staffBackgroundColor = UIColor(red: 155/255, green: 122/255, blue: 41/255, alpha: 1),
     nameColor:UIColor! = UIColor(red: 38/255, green: 57/255, blue: 30/255, alpha: 1),
-        backgroundColor:UIColor! = UIColor(red: 38/255, green: 57/255, blue: 30/255, alpha: 1)
+    backgroundColor:UIColor! = UIColor(red: 38/255, green: 57/255, blue: 30/255, alpha: 1)
         
 
     
@@ -48,6 +48,17 @@ class MainVC: UITableViewController, MFMailComposeViewControllerDelegate {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let  nav = self.navigationController?.navigationBar
+        nav?.tintColor = UIColor(red: 155/255, green: 122/255, blue: 41/255, alpha: 1)
+        nav?.barTintColor = UIColor(red: 38/255, green: 57/255, blue: 30/255, alpha: 1)
+        nav?.titleTextAttributes = [NSForegroundColorAttributeName: UIColor(red: 155/255, green: 122/255, blue: 41/255, alpha: 1)]
+        self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"Back", style: .plain, target:nil, action:nil)
+        
+        scrollView.delegate = self
+        scrollView.contentSize.height = 134
+        self.view.backgroundColor = backgroundColor
+        
         // Do this here to give AppDelegate's application:didFinishLaunchingWithOptions
         // a chance to finish (Firebase configuration) before we access Firebase
         
@@ -63,13 +74,8 @@ class MainVC: UITableViewController, MFMailComposeViewControllerDelegate {
     
     //Initalizes everything we need to initalize on the UI
     func setupUI(){
-        navigationController?.navigationBar.tintColor = UIColor(red: 155/255, green: 122/255, blue: 41/255, alpha: 1)
-        self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"Back", style: .plain, target:nil, action:nil)
-
-        scrollView.delegate = self
-        scrollView.contentSize.height = 134
+        // Do this here because the staff have now loaded from firebase
         scrollView.contentSize.width = CGFloat(((staff.GetStaffList().count) * viewWidth))
-        view.backgroundColor = backgroundColor
         
         //Add a view for each new staff member
         for (index, staffMember) in staff.GetStaffList().enumerated() {
