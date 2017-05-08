@@ -2,7 +2,7 @@
 //  AdminVC.swift
 //  OliveAndGold
 //
-//  Created by Mobile on 1/20/17.
+//  Created by Aaron Peyton on 1/20/17.
 //  Copyright © 2017 com.4myeecc. All rights reserved.
 //
 
@@ -31,6 +31,14 @@ class AdminVC: UITableViewController, MFMailComposeViewControllerDelegate {
     nameColor:UIColor! = UIColor(red: 38/255, green: 57/255, blue: 30/255, alpha: 1),
     backgroundColor:UIColor! = UIColor(red: 38/255, green: 57/255, blue: 30/255, alpha: 1)
     
+    // list of URLs for table cells
+    private var urls = [ URL(string: "http://sbhs.sbunified.org/apps/pages/index.jsp?uREC_ID=300452&type=d&pREC_ID=708109")!,//p. message
+                         URL(string: "https://1.cdn.edl.io/Yn4kb8cxoCPBrORlThSo16BsIItoPMZxk4SFA7Jupyn4ukSL.pdf")!, //school profile
+                         URL(string: "http://sbhs.sbunified.org/apps/video/watch.jsp?v=131522")!,] //promo video 
+                        //admin org chart added in viewDidLoad
+    
+    private let cellNames = [ "Principals's Message", "School Profile", "Promotional Video", "Admin Org Chart"]
+                        // need one for loading url filepath for org chart
     
     //Storyboard outlets
     @IBOutlet weak var AdminScrollView: UIScrollView!
@@ -43,7 +51,15 @@ class AdminVC: UITableViewController, MFMailComposeViewControllerDelegate {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
+        let pdf = Bundle.main.url(forResource: "SBHSOrgChart", withExtension: "pdf", subdirectory: nil, localization: nil)
+        if pdf != nil{
+            urls.append(pdf!)
+        }
+        else{
+            print("\n\n\n couldn't find pdf, didnt load it into urls\n\n\n")
+        }
+        
         staff = AdminStaff()
         setupUI()
     }
@@ -134,29 +150,38 @@ class AdminVC: UITableViewController, MFMailComposeViewControllerDelegate {
             let adminStaffDisplayVC = segue.destination as! AdminStaffDisplayVC
             adminStaffDisplayVC.staffMember = segueStaffMember
         }
+        
+        else if segue.identifier == "showWebview"{
+            let selectedCell = sender as! AdminTableViewCell
+            let indexPath = tableView.indexPath(for: selectedCell)
+            
+            let newVC = segue.destination as! AdminWebViewController
+            newVC.url = urls[(indexPath?.row)!]
+        }
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        return urls.count
     }
 
-    /*
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "adminCell", for: indexPath) as! AdminTableViewCell
+        
+//        let url = urls[indexPath.row]
+        cell.rowLabel.text = cellNames[indexPath.row]
 
-        // Configure the cell...
-
+        
         return cell
     }
-    */
+ 
 
     /*
     // Override to support conditional editing of the table view.

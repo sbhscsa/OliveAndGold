@@ -2,7 +2,7 @@
 //  Counselors.swift
 //  OliveAndGold-Updated
 //
-//  Created by Trip Creighton on 10/26/16.
+//  Created by Robert Weisz on 1/20/17.
 //  Copyright © 2016 . All rights reserved.
 //
 
@@ -27,19 +27,17 @@ class AdminStaff{
        /*        ADMINISTRATION        */
     
         CreateStaffMember(name: "Dr. John Bechio", email: "jbecchio@sbunified.org",title: "Principal", education: ["Doctor of Education (Ed.D.), Educational Leadership and Administration, General" ,  "Master of Arts (M.A.), Educational Leadership and Administration, General", "Single Subject Teaching Credential, Secondary Education and Teaching", "Bachelor of Science (B.S.), Kinesiology and Exercise Science", "Minor, Spanish" ], image: UIImage(named: "becchio")!, ext: "5001")
-     
-        CreateStaffMember(name: "Martha Garcia", email: "mggarcia@sbunified.org", title: "Secretary", education: ["high school", "college", "college"], image: UIImage(named: "garcia")!, ext: "5006")
-        
-        CreateStaffMember(name: "Tiffany Carson", email: "tcarson@sbunified.org", title: "Assistant Principal 12th Grade", education: ["high school", "college", "college"], image: UIImage(named: "carson")!, ext: "5002")
 
-        CreateStaffMember(name: "Jessica Siordia", email: "jsiordia@sbunified.org", title: "Secretary", education: ["high school", "college", "college"], image: UIImage(named: "siordia")!, ext: "5008")
+        CreateStaffMember(name: "Tiffany Carson", email: "tcarson@sbunified.org", title: "Assistant Principal 12th Grade", education: ["high school", "college", "college"], image: UIImage(named: "carson")!, ext: "5002")
+        
+         CreateStaffMember(name: "Fred Razo", email: "frazo@sbunified.org", title: "Assistant Principal 10 - 11th Grade", education: ["high school", "college", "college"], image: UIImage(named: "razo")!, ext: "5004")
         
         CreateStaffMember(name: "Anna Scharfeld", email: "ascharfeld@sbunified.org", title: "Assistant Principal 9th Grade", education: ["high school", "college", "college"], image: UIImage(named: "scharfeld")!, ext: "5003")
         
-        CreateStaffMember(name: "Karla Corral", email: "kmcorral@sbunified.org", title: "Secretary", education:
-            ["high school", "college", "college"], image: UIImage(named: "corral")!, ext: "5007")
+        CreateStaffMember(name: "TBA", email: "tba@sbunified.org", title: "Dean of Student Engagement", education: ["high school", "college", "college"], image: UIImage(named: "unknown")!, ext: "0000")
+
       
-        CreateStaffMember(name: "Fred Razo", email: "frazo@sbunified.org", title: "Assistant Principal 10 - 11th Grade", education: ["high school", "college", "college"], image: UIImage(named: "razo")!, ext: "5004")
+    
     
     
     

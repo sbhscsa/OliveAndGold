@@ -2,7 +2,7 @@
 //  StaffVC.swift
 //  OliveAndGold-Updated
 //
-//  Created by Trip Creighton on 10/28/16.
+//  Created by Aaron Peyton on 1/20/17.
 //  Copyright © 2016 . All rights reserved.
 //
 
