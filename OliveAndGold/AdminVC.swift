@@ -32,8 +32,7 @@ class AdminVC: UITableViewController, MFMailComposeViewControllerDelegate {
     backgroundColor:UIColor! = UIColor(red: 38/255, green: 57/255, blue: 30/255, alpha: 1)
     
     // list of URLs for table cells
-    private var urls = [ URL(string: "http://sbhs.sbunified.org/apps/pages/index.jsp?uREC_ID=300452&type=d&pREC_ID=708109")!,//p. message
-                         URL(string: "https://1.cdn.edl.io/Yn4kb8cxoCPBrORlThSo16BsIItoPMZxk4SFA7Jupyn4ukSL.pdf")!, //school profile
+    private var urls = [ URL(string: "https://1.cdn.edl.io/Yn4kb8cxoCPBrORlThSo16BsIItoPMZxk4SFA7Jupyn4ukSL.pdf")!, //school profile
                          URL(string: "http://sbhs.sbunified.org/apps/video/watch.jsp?v=131522")!,] //promo video 
                         //admin org chart added in viewDidLoad
     
@@ -52,12 +51,19 @@ class AdminVC: UITableViewController, MFMailComposeViewControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let pdf = Bundle.main.url(forResource: "SBHSOrgChart", withExtension: "pdf", subdirectory: nil, localization: nil)
-        if pdf != nil{
-            urls.append(pdf!)
+        let pmPdf = Bundle.main.url(forResource: "PrincipalsMessage", withExtension: "pdf", subdirectory: nil, localization: nil)
+        let orgPdf = Bundle.main.url(forResource: "SBHSOrgChart", withExtension: "pdf", subdirectory: nil, localization: nil)
+        
+        if pmPdf != nil {
+            urls.insert(pmPdf!, at: 0)
+        } else {
+            print("\n\n\n couldn't find principal's message PDF, didnt load it into urls\n\n\n")
+
         }
-        else{
-            print("\n\n\n couldn't find pdf, didnt load it into urls\n\n\n")
+        if orgPdf != nil{
+            urls.append(orgPdf!)
+        } else{
+            print("\n\n\n couldn't find Org PDF, didnt load it into urls\n\n\n")
         }
         
         staff = AdminStaff()

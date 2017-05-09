@@ -36,6 +36,7 @@
 		ED46452C1E53E3B10019092A /* AdminStaffDisplayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED4645281E53E3B10019092A /* AdminStaffDisplayVC.swift */; };
 		ED46452D1E53E3B10019092A /* AdminStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED4645291E53E3B10019092A /* AdminStoryboard.storyboard */; };
 		ED46452E1E53E3B10019092A /* AdminVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED46452A1E53E3B10019092A /* AdminVC.swift */; };
+		ED4895FE1EC14E32001E0844 /* PrincipalsMessage.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ED4895FD1EC14E32001E0844 /* PrincipalsMessage.pdf */; };
 		ED5A4C931E849E07005988A9 /* Athletics.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED5A4C911E849E07005988A9 /* Athletics.storyboard */; };
 		ED5A4C941E849E07005988A9 /* AthleticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5A4C921E849E07005988A9 /* AthleticsViewController.swift */; };
 		EDD34E391E22D700006F1AF2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EDD34E381E22D700006F1AF2 /* GoogleService-Info.plist */; };
@@ -104,6 +105,7 @@
 		ED4645281E53E3B10019092A /* AdminStaffDisplayVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminStaffDisplayVC.swift; sourceTree = "<group>"; };
 		ED4645291E53E3B10019092A /* AdminStoryboard.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = AdminStoryboard.storyboard; sourceTree = "<group>"; };
 		ED46452A1E53E3B10019092A /* AdminVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminVC.swift; sourceTree = "<group>"; };
+		ED4895FD1EC14E32001E0844 /* PrincipalsMessage.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = PrincipalsMessage.pdf; sourceTree = "<group>"; };
 		ED5A4C911E849E07005988A9 /* Athletics.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Athletics.storyboard; sourceTree = "<group>"; };
 		ED5A4C921E849E07005988A9 /* AthleticsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AthleticsViewController.swift; sourceTree = "<group>"; };
 		EDD34E381E22D700006F1AF2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -305,6 +307,7 @@
 		ED4645261E53E32B0019092A /* Admin */ = {
 			isa = PBXGroup;
 			children = (
+				ED4895FD1EC14E32001E0844 /* PrincipalsMessage.pdf */,
 				38200C411EC0BDC400D55EDE /* SBHSOrgChart.pdf */,
 				38200C3D1EC0BD8F00D55EDE /* AdminTableViewCell.swift */,
 				38200C3E1EC0BD8F00D55EDE /* AdminWebViewController.swift */,
@@ -463,6 +466,7 @@
 				ED5A4C931E849E07005988A9 /* Athletics.storyboard in Resources */,
 				38200C421EC0BDC400D55EDE /* SBHSOrgChart.pdf in Resources */,
 				75C8F1E31CBD75C100125AD4 /* Assets.xcassets in Resources */,
+				ED4895FE1EC14E32001E0844 /* PrincipalsMessage.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
