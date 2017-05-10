@@ -11,6 +11,7 @@
 		38200C3F1EC0BD8F00D55EDE /* AdminTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38200C3D1EC0BD8F00D55EDE /* AdminTableViewCell.swift */; };
 		38200C401EC0BD8F00D55EDE /* AdminWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38200C3E1EC0BD8F00D55EDE /* AdminWebViewController.swift */; };
 		38200C421EC0BDC400D55EDE /* SBHSOrgChart.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 38200C411EC0BDC400D55EDE /* SBHSOrgChart.pdf */; };
+		388CE8E21EC3664700754B81 /* AdminVideoWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388CE8E11EC3664700754B81 /* AdminVideoWebViewController.swift */; };
 		4B0942F62DE5D4F46A1A5B65 /* Pods_OliveAndGoldUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2E59E2DE13FFBEB7FBE3210 /* Pods_OliveAndGoldUITests.framework */; };
 		75282E781CCFCBB0006FCFA1 /* QuestionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75282E771CCFCBB0006FCFA1 /* QuestionVC.swift */; };
 		753CA9991CC6B65900816DFA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75C8F1DF1CBD75C100125AD4 /* Main.storyboard */; };
@@ -69,6 +70,7 @@
 		38200C3D1EC0BD8F00D55EDE /* AdminTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminTableViewCell.swift; sourceTree = "<group>"; };
 		38200C3E1EC0BD8F00D55EDE /* AdminWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminWebViewController.swift; sourceTree = "<group>"; };
 		38200C411EC0BDC400D55EDE /* SBHSOrgChart.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = SBHSOrgChart.pdf; sourceTree = "<group>"; };
+		388CE8E11EC3664700754B81 /* AdminVideoWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AdminVideoWebViewController.swift; sourceTree = "<group>"; };
 		508B16B5FE0EE60AE718BD42 /* Pods-OliveAndGold.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OliveAndGold.debug.xcconfig"; path = "Pods/Target Support Files/Pods-OliveAndGold/Pods-OliveAndGold.debug.xcconfig"; sourceTree = "<group>"; };
 		695B78470EFC2BDAC7DDAFB4 /* Pods-OliveAndGold.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-OliveAndGold.release.xcconfig"; path = "Pods/Target Support Files/Pods-OliveAndGold/Pods-OliveAndGold.release.xcconfig"; sourceTree = "<group>"; };
 		703E7EE63B6549F147CCF0AB /* Pods_OliveAndGoldTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OliveAndGoldTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -311,6 +313,7 @@
 				38200C411EC0BDC400D55EDE /* SBHSOrgChart.pdf */,
 				38200C3D1EC0BD8F00D55EDE /* AdminTableViewCell.swift */,
 				38200C3E1EC0BD8F00D55EDE /* AdminWebViewController.swift */,
+				388CE8E11EC3664700754B81 /* AdminVideoWebViewController.swift */,
 				ED4645271E53E3B10019092A /* AdminStaff.swift */,
 				ED4645281E53E3B10019092A /* AdminStaffDisplayVC.swift */,
 				ED4645291E53E3B10019092A /* AdminStoryboard.storyboard */,
@@ -630,6 +633,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				ED2139651E347F3C006F5E9B /* SPTableViewController.swift in Sources */,
+				388CE8E21EC3664700754B81 /* AdminVideoWebViewController.swift in Sources */,
 				D671CBB91E01B9BC008F04E1 /* StaffMember.swift in Sources */,
 				D66D7FBD1E04957E00BB6ABC /* QuestionTableViewCell.swift in Sources */,
 				D671CBBE1E01BA6A008F04E1 /* Extensions.swift in Sources */,

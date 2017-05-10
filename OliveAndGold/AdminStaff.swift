@@ -34,13 +34,7 @@ class AdminStaff{
         
         CreateStaffMember(name: "Anna Scharfeld", email: "ascharfeld@sbunified.org", title: "Assistant Principal 9th Grade", education: ["high school", "college", "college"], image: UIImage(named: "scharfeld")!, ext: "5003")
         
-        CreateStaffMember(name: "TBA", email: "tba@sbunified.org", title: "Dean of Student Engagement", education: ["high school", "college", "college"], image: UIImage(named: "unknown")!, ext: "0000")
-
-      
-    
-    
-    
-    
+//        CreateStaffMember(name: "TBA", email: "tba@sbunified.org", title: "Dean of Student Engagement", education: ["high school", "college", "college"], image: UIImage(named: "unknown")!, ext: "0000")
     
     }
     

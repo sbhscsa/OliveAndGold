@@ -28,10 +28,6 @@ class AthleticsViewController: UIViewController, WKNavigationDelegate {
         webViewLoadURL(urlString: "http://www.sbhsathletics.org")
     }
     
-    override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
-        self.webView.frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
-    }
-    
     func webViewLoadURL(urlString: String) {
         
         if let searchableUrl = NSURL(string: urlString) {

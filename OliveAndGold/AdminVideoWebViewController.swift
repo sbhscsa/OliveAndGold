@@ -1,37 +1,28 @@
 //
-//  AdminWebViewController.swift
+//  AdminVideoWebViewController.swift
 //  OliveAndGold
 //
-//  Created by Mobile on 5/5/17.
+//  Created by room26 admin on 5/10/17.
 //  Copyright © 2017 com.4myeecc. All rights reserved.
 //
 
 import UIKit
 import WebKit
 
-class AdminWebViewController: UIViewController, WKNavigationDelegate {
-    var webView:WKWebView!
-    var url:URL?
+class AdminVideoWebViewController: UIViewController {
     
-    let dUrl = URL(string: "http://sbhs.sbunified.org")
-    
+    var webView: WKWebView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        webView = WKWebView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
-        webView.navigationDelegate = self
-        
-        webView.allowsBackForwardNavigationGestures = true
-        
-        if url == nil{
-            url = dUrl
-            print("\n\n\n BUHHHHHH URL DID NOT WORK\n\n\n")
-        }
-        webView.load(URLRequest(url: url!))
-        
-        view.addSubview(webView)
 
-        // Do any additional setup after loading the view.
+        let markup = "<body bgcolor=\"black\"><div style=\"position: relative; top: 50%; transform: translateY(-50%);\"> <div style=\"text-align: center; background-color: black;\"> <iframe class=\"edlio-embed-player\" type=\"text/html\" width=\"640\" height=\"360\" src=\"http://sbhs.sbunified.org/apps/embed/?v=129742\" frameborder=\"0\" allowfullscreen></iframe></div></div></body>"
+        
+        webView = WKWebView(frame: self.view.frame)
+        
+        webView.loadHTMLString(markup, baseURL: nil)
+        
+        self.view.addSubview(webView)
     }
 
     override func didReceiveMemoryWarning() {
@@ -43,7 +34,6 @@ class AdminWebViewController: UIViewController, WKNavigationDelegate {
     override func viewWillTransition(to size: CGSize, with coordinator: UIViewControllerTransitionCoordinator) {
         self.webView.frame = CGRect(x: 0, y: 0, width: size.width, height: size.height)
     }
-    
 
     /*
     // MARK: - Navigation

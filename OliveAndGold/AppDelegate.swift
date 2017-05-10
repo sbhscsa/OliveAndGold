@@ -36,11 +36,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let specialTabVC = storyboard.instantiateViewController(withIdentifier: "SpecialNavVC") as! UINavigationController
         
         // Get the Settings tab view controller from the storyboard
-        let settingsTabVC = storyboard.instantiateViewController(withIdentifier: "SettingsVC") as! SettingsVC
+//        let settingsTabVC = storyboard.instantiateViewController(withIdentifier: "SettingsVC") as! SettingsVC
         
         // Make a tab bar controller and set its tabs (view controller array)
         let tabVC = UITabBarController()
-        tabVC.viewControllers = [adminTabVC, cccTabVC, athleticsTabVC, specialTabVC, settingsTabVC]
+        tabVC.viewControllers = [adminTabVC, cccTabVC, athleticsTabVC, specialTabVC]
         
         // Creating the tab bar controller in code means that the window property
         // of this class is nil, (normally window is set to the starting VC from the storyboard)

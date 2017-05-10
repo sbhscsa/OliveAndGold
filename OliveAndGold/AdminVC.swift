@@ -58,8 +58,8 @@ class AdminVC: UITableViewController, MFMailComposeViewControllerDelegate {
             urls.insert(pmPdf!, at: 0)
         } else {
             print("\n\n\n couldn't find principal's message PDF, didnt load it into urls\n\n\n")
-
         }
+        
         if orgPdf != nil{
             urls.append(orgPdf!)
         } else{
@@ -156,13 +156,17 @@ class AdminVC: UITableViewController, MFMailComposeViewControllerDelegate {
             let adminStaffDisplayVC = segue.destination as! AdminStaffDisplayVC
             adminStaffDisplayVC.staffMember = segueStaffMember
         }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        else if segue.identifier == "showWebview"{
-            let selectedCell = sender as! AdminTableViewCell
-            let indexPath = tableView.indexPath(for: selectedCell)
-            
-            let newVC = segue.destination as! AdminWebViewController
-            newVC.url = urls[(indexPath?.row)!]
+        if cellNames[indexPath.row] == "Promotional Video" {
+            let webVideoVC = AdminVideoWebViewController()
+            self.navigationController?.pushViewController(webVideoVC, animated: true)
+        } else {
+            let webVC = storyboard?.instantiateViewController(withIdentifier: "AdminWebviewVC") as! AdminWebViewController
+            webVC.url = urls[indexPath.row]
+            self.navigationController?.pushViewController(webVC, animated: true)
         }
     }
 
