@@ -5,7 +5,7 @@
 //  Copyright © 2016 com.4myeecc. All rights reserved.
 //
 
-import WebKit
+import UIKit
 
 class WebviewVC: UIViewController {
     
