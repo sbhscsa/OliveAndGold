@@ -26,13 +26,13 @@ class AdminStaff{
         
        /*        ADMINISTRATION        */
     
-        CreateStaffMember(name: "Dr. John Bechio", email: "jbecchio@sbunified.org",title: "Principal", education: ["Doctor of Education (Ed.D.), Educational Leadership and Administration, General" ,  "Master of Arts (M.A.), Educational Leadership and Administration, General", "Single Subject Teaching Credential, Secondary Education and Teaching", "Bachelor of Science (B.S.), Kinesiology and Exercise Science", "Minor, Spanish" ], image: UIImage(named: "becchio")!, ext: "5001")
+        CreateStaffMember(name: "Dr. John Bechio", email: "jbecchio@sbunified.org",title: "Principal", education: ["Ed.D. Educational Leadership and Administration, General" ,  "M.A. Educational Leadership and Administration, General", "Single Subject Teaching Credential, Secondary Education and Teaching", "B.S. Kinesiology and Exercise Science", "Minor, Spanish" ], image: UIImage(named: "becchio")!, ext: "5001")
 
-        CreateStaffMember(name: "Tiffany Carson", email: "tcarson@sbunified.org", title: "Assistant Principal 12th Grade", education: ["high school", "college", "college"], image: UIImage(named: "carson")!, ext: "5002")
+        CreateStaffMember(name: "Tiffany Carson", email: "tcarson@sbunified.org", title: "Assistant Principal 12th Grade", education: ["Bachelor of Music Performance, Ithaca College", "Education Specialist, Cal State University Channel Islands", "Preliminary Administrative Services Credential, Santa Barbara County Education Office"], image: UIImage(named: "carson")!, ext: "5002")
         
-         CreateStaffMember(name: "Fred Razo", email: "frazo@sbunified.org", title: "Assistant Principal 10 - 11th Grade", education: ["high school", "college", "college"], image: UIImage(named: "razo")!, ext: "5004")
+        CreateStaffMember(name: "Fred Razo", email: "frazo@sbunified.org", title: "Assistant Principal 10 - 11th Grade", education: ["B.S. Social Science Criminal Justice, Cal Poly San Luis Obispo", "M.S. Counseling Marriage Family Therapy, Cal Poly San Luis Obispo", "Educational Administrative Services Credential, Cal Poly San Luis Obispo"], image: UIImage(named: "razo")!, ext: "5004")
         
-        CreateStaffMember(name: "Anna Scharfeld", email: "ascharfeld@sbunified.org", title: "Assistant Principal 9th Grade", education: ["high school", "college", "college"], image: UIImage(named: "scharfeld")!, ext: "5003")
+        CreateStaffMember(name: "Anna Scharfeld", email: "ascharfeld@sbunified.org", title: "Assistant Principal 9th Grade", education: ["B.A. Mathematics, Northwestern University", "Multiple Subject CLAD Teaching Credential, University of San Francisco", "Administrative Services Credential, Cal Lutheran University"], image: UIImage(named: "scharfeld")!, ext: "5003")
         
 //        CreateStaffMember(name: "TBA", email: "tba@sbunified.org", title: "Dean of Student Engagement", education: ["high school", "college", "college"], image: UIImage(named: "unknown")!, ext: "0000")
     

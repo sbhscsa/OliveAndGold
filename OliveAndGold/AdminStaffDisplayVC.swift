@@ -92,7 +92,7 @@ class AdminStaffDisplayVC: UIViewController, MFMailComposeViewControllerDelegate
                 
                 //color edited**
                 curStaffDesc.textColor = UIColor(red: 210/255, green: 178/255, blue: 76/255, alpha: 1)
-                curStaffDesc.font = UIFont(name: "HelveticaNeue", size: 16.5)
+                curStaffDesc.font = UIFont(name: "HelveticaNeue", size: 16)
                 curStaffDesc.lineBreakMode = .byWordWrapping
                 curStaffDesc.numberOfLines = 5
                 credentialsLabel.textColor = UIColor(red: 210/255, green: 178/255, blue: 76/255, alpha: 1)
