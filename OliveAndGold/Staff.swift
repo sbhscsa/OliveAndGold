@@ -53,9 +53,9 @@ class Staff{
                 let image = staffData?["image"] as! String
                 let ext = staffData?["ext"] as! Int
                 
-//                print(staffData)
-                
-                self.CreateStaffMember(name: name, email: email, title: title, education: education, image: UIImage(named: image)!, ext: "\(ext)")
+                // If there is no image for this person, use the placeholder image
+                let imageToUse = UIImage(named: image) ?? UIImage(named: "unknown")
+                self.CreateStaffMember(name: name, email: email, title: title, education: education, image: imageToUse!, ext: "\(ext)")
                 
             }
             // once this completes, call load the scroll view
