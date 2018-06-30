@@ -45,13 +45,13 @@ class AdminStaff{
     }
     
     //Retreives the staff member by their name
-    func GetStaffMember(name: String) -> StaffMember                                                                                                                                {
+    func GetStaffMember(name: String) -> StaffMember? {
         for staffMember in staffList {
             if staffMember.GetName() == name || staffMember.GetName().contains(name) {
                 return staffMember
             }
         }
-        return nil as StaffMember!
+        return nil
     }
     
     func GetStaffList() -> [StaffMember] {

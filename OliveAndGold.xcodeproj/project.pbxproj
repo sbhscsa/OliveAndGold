@@ -7,12 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		107D93B11CD9AEF300EA94F1 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 107D93B01CD9AEF300EA94F1 /* MessageUI.framework */; };
 		38200C3F1EC0BD8F00D55EDE /* AdminTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38200C3D1EC0BD8F00D55EDE /* AdminTableViewCell.swift */; };
 		38200C401EC0BD8F00D55EDE /* AdminWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 38200C3E1EC0BD8F00D55EDE /* AdminWebViewController.swift */; };
 		38200C421EC0BDC400D55EDE /* SBHSOrgChart.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 38200C411EC0BDC400D55EDE /* SBHSOrgChart.pdf */; };
 		388CE8E21EC3664700754B81 /* AdminVideoWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 388CE8E11EC3664700754B81 /* AdminVideoWebViewController.swift */; };
-		4B0942F62DE5D4F46A1A5B65 /* Pods_OliveAndGoldUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C2E59E2DE13FFBEB7FBE3210 /* Pods_OliveAndGoldUITests.framework */; };
 		75282E781CCFCBB0006FCFA1 /* QuestionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75282E771CCFCBB0006FCFA1 /* QuestionVC.swift */; };
 		753CA9991CC6B65900816DFA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75C8F1DF1CBD75C100125AD4 /* Main.storyboard */; };
 		7568BACC1CD279B700D22B89 /* WebviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7568BACB1CD279B700D22B89 /* WebviewVC.swift */; };
@@ -20,8 +18,6 @@
 		75C8F1DE1CBD75C100125AD4 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C8F1DD1CBD75C100125AD4 /* MainVC.swift */; };
 		75C8F1E31CBD75C100125AD4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 75C8F1E21CBD75C100125AD4 /* Assets.xcassets */; };
 		75C8F1E61CBD75C100125AD4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75C8F1E41CBD75C100125AD4 /* LaunchScreen.storyboard */; };
-		75C8F1F11CBD75C100125AD4 /* OliveAndGoldTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C8F1F01CBD75C100125AD4 /* OliveAndGoldTests.swift */; };
-		75C8F1FC1CBD75C100125AD4 /* OliveAndGoldUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75C8F1FB1CBD75C100125AD4 /* OliveAndGoldUITests.swift */; };
 		D63782CB1E025B7700E2DA3E /* StaffDisplayVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = D63782CA1E025B7700E2DA3E /* StaffDisplayVC.swift */; };
 		D66D7FBB1E048ED200BB6ABC /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66D7FBA1E048ED200BB6ABC /* MainTableViewCell.swift */; };
 		D66D7FBD1E04957E00BB6ABC /* QuestionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D66D7FBC1E04957E00BB6ABC /* QuestionTableViewCell.swift */; };
@@ -42,25 +38,7 @@
 		ED5A4C941E849E07005988A9 /* AthleticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5A4C921E849E07005988A9 /* AthleticsViewController.swift */; };
 		EDD34E391E22D700006F1AF2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EDD34E381E22D700006F1AF2 /* GoogleService-Info.plist */; };
 		EF8B98D021DA7D8C64AC895D /* Pods_OliveAndGold.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE48E69271D39D139A33954A /* Pods_OliveAndGold.framework */; };
-		FDD0607544BB338CA9D1DF1F /* Pods_OliveAndGoldTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 703E7EE63B6549F147CCF0AB /* Pods_OliveAndGoldTests.framework */; };
 /* End PBXBuildFile section */
-
-/* Begin PBXContainerItemProxy section */
-		75C8F1ED1CBD75C100125AD4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 75C8F1D01CBD75C000125AD4 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 75C8F1D71CBD75C100125AD4;
-			remoteInfo = OliveAndGold;
-		};
-		75C8F1F81CBD75C100125AD4 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 75C8F1D01CBD75C000125AD4 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 75C8F1D71CBD75C100125AD4;
-			remoteInfo = OliveAndGold;
-		};
-/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		107D93B01CD9AEF300EA94F1 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
@@ -83,10 +61,8 @@
 		75C8F1E21CBD75C100125AD4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		75C8F1E51CBD75C100125AD4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		75C8F1E71CBD75C100125AD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		75C8F1EC1CBD75C100125AD4 /* OliveAndGoldTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OliveAndGoldTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		75C8F1F01CBD75C100125AD4 /* OliveAndGoldTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OliveAndGoldTests.swift; sourceTree = "<group>"; };
 		75C8F1F21CBD75C100125AD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		75C8F1F71CBD75C100125AD4 /* OliveAndGoldUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = OliveAndGoldUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		75C8F1FB1CBD75C100125AD4 /* OliveAndGoldUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OliveAndGoldUITests.swift; sourceTree = "<group>"; };
 		75C8F1FD1CBD75C100125AD4 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		C2E59E2DE13FFBEB7FBE3210 /* Pods_OliveAndGoldUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_OliveAndGoldUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -122,23 +98,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		75C8F1E91CBD75C100125AD4 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				FDD0607544BB338CA9D1DF1F /* Pods_OliveAndGoldTests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		75C8F1F41CBD75C100125AD4 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				107D93B11CD9AEF300EA94F1 /* MessageUI.framework in Frameworks */,
-				4B0942F62DE5D4F46A1A5B65 /* Pods_OliveAndGoldUITests.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -169,8 +128,6 @@
 			isa = PBXGroup;
 			children = (
 				75C8F1D81CBD75C100125AD4 /* OliveAndGold.app */,
-				75C8F1EC1CBD75C100125AD4 /* OliveAndGoldTests.xctest */,
-				75C8F1F71CBD75C100125AD4 /* OliveAndGoldUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -363,48 +320,6 @@
 			productReference = 75C8F1D81CBD75C100125AD4 /* OliveAndGold.app */;
 			productType = "com.apple.product-type.application";
 		};
-		75C8F1EB1CBD75C100125AD4 /* OliveAndGoldTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 75C8F2031CBD75C100125AD4 /* Build configuration list for PBXNativeTarget "OliveAndGoldTests" */;
-			buildPhases = (
-				38F0DC9F029DFCA750D57692 /* [CP] Check Pods Manifest.lock */,
-				75C8F1E81CBD75C100125AD4 /* Sources */,
-				75C8F1E91CBD75C100125AD4 /* Frameworks */,
-				75C8F1EA1CBD75C100125AD4 /* Resources */,
-				086D088B208E6451CA8BDBB5 /* [CP] Embed Pods Frameworks */,
-				5C8E22F834326A15D7036276 /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				75C8F1EE1CBD75C100125AD4 /* PBXTargetDependency */,
-			);
-			name = OliveAndGoldTests;
-			productName = OliveAndGoldTests;
-			productReference = 75C8F1EC1CBD75C100125AD4 /* OliveAndGoldTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
-		75C8F1F61CBD75C100125AD4 /* OliveAndGoldUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 75C8F2061CBD75C100125AD4 /* Build configuration list for PBXNativeTarget "OliveAndGoldUITests" */;
-			buildPhases = (
-				50ED388D1165594891CD4025 /* [CP] Check Pods Manifest.lock */,
-				75C8F1F31CBD75C100125AD4 /* Sources */,
-				75C8F1F41CBD75C100125AD4 /* Frameworks */,
-				75C8F1F51CBD75C100125AD4 /* Resources */,
-				297CAE3169F3A00439F79B4E /* [CP] Embed Pods Frameworks */,
-				3D6E59BC2967188B8A2A081F /* [CP] Copy Pods Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				75C8F1F91CBD75C100125AD4 /* PBXTargetDependency */,
-			);
-			name = OliveAndGoldUITests;
-			productName = OliveAndGoldUITests;
-			productReference = 75C8F1F71CBD75C100125AD4 /* OliveAndGoldUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -415,25 +330,13 @@
 					41,
 				);
 				LastSwiftUpdateCheck = 0720;
-				LastUpgradeCheck = 0810;
+				LastUpgradeCheck = 0940;
 				ORGANIZATIONNAME = com.4myeecc;
 				TargetAttributes = {
 					75C8F1D71CBD75C100125AD4 = {
 						CreatedOnToolsVersion = 7.2;
 						DevelopmentTeam = K3PUTQJ355;
-						LastSwiftMigration = 0800;
-					};
-					75C8F1EB1CBD75C100125AD4 = {
-						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = 8NCGG875PH;
-						LastSwiftMigration = 0800;
-						TestTargetID = 75C8F1D71CBD75C100125AD4;
-					};
-					75C8F1F61CBD75C100125AD4 = {
-						CreatedOnToolsVersion = 7.2;
-						DevelopmentTeam = 8NCGG875PH;
-						LastSwiftMigration = 0800;
-						TestTargetID = 75C8F1D71CBD75C100125AD4;
+						LastSwiftMigration = 0940;
 					};
 				};
 			};
@@ -451,8 +354,6 @@
 			projectRoot = "";
 			targets = (
 				75C8F1D71CBD75C100125AD4 /* OliveAndGold */,
-				75C8F1EB1CBD75C100125AD4 /* OliveAndGoldTests */,
-				75C8F1F61CBD75C100125AD4 /* OliveAndGoldUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -473,38 +374,9 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		75C8F1EA1CBD75C100125AD4 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		75C8F1F51CBD75C100125AD4 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		086D088B208E6451CA8BDBB5 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OliveAndGoldTests/Pods-OliveAndGoldTests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		23FFE6732ADD9D01210A1BFE /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -520,51 +392,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OliveAndGold/Pods-OliveAndGold-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		297CAE3169F3A00439F79B4E /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OliveAndGoldUITests/Pods-OliveAndGoldUITests-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		38F0DC9F029DFCA750D57692 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		3D6E59BC2967188B8A2A081F /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OliveAndGoldUITests/Pods-OliveAndGoldUITests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		47964DAF03742DBE0831BAF5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -578,36 +405,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		50ED388D1165594891CD4025 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		5C8E22F834326A15D7036276 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OliveAndGoldTests/Pods-OliveAndGoldTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		6D9D55D1482DE3D52F25411E /* [CP] Copy Pods Resources */ = {
@@ -657,36 +454,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		75C8F1E81CBD75C100125AD4 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				75C8F1F11CBD75C100125AD4 /* OliveAndGoldTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		75C8F1F31CBD75C100125AD4 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				75C8F1FC1CBD75C100125AD4 /* OliveAndGoldUITests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		75C8F1EE1CBD75C100125AD4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 75C8F1D71CBD75C100125AD4 /* OliveAndGold */;
-			targetProxy = 75C8F1ED1CBD75C100125AD4 /* PBXContainerItemProxy */;
-		};
-		75C8F1F91CBD75C100125AD4 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 75C8F1D71CBD75C100125AD4 /* OliveAndGold */;
-			targetProxy = 75C8F1F81CBD75C100125AD4 /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		75C8F1DF1CBD75C100125AD4 /* Main.storyboard */ = {
@@ -716,14 +484,22 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -751,6 +527,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 			};
 			name = Debug;
 		};
@@ -762,14 +539,22 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_MODULES = YES;
 				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
 				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
 				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
 				CLANG_WARN_INFINITE_RECURSION = YES;
 				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
@@ -790,6 +575,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -808,7 +594,8 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.eecc.OliveAndGold;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -827,68 +614,9 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.eecc.OliveAndGold;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_VERSION = 3.0;
+				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
-			};
-			name = Release;
-		};
-		75C8F2041CBD75C100125AD4 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = CFE49F536A0459A7B9EEBEC5 /* Pods-OliveAndGoldTests.debug.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = OliveAndGoldTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = eecc.OliveAndGoldTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OliveAndGold.app/OliveAndGold";
-			};
-			name = Debug;
-		};
-		75C8F2051CBD75C100125AD4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 151BA9A0D662583F0292E67A /* Pods-OliveAndGoldTests.release.xcconfig */;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				INFOPLIST_FILE = OliveAndGoldTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = eecc.OliveAndGoldTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/OliveAndGold.app/OliveAndGold";
-			};
-			name = Release;
-		};
-		75C8F2071CBD75C100125AD4 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 17A6CB0847A7A8CCB89868A5 /* Pods-OliveAndGoldUITests.debug.xcconfig */;
-			buildSettings = {
-				INFOPLIST_FILE = OliveAndGoldUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = eecc.OliveAndGoldUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = OliveAndGold;
-				USES_XCTRUNNER = YES;
-			};
-			name = Debug;
-		};
-		75C8F2081CBD75C100125AD4 /* Release */ = {
-			isa = XCBuildConfiguration;
-			baseConfigurationReference = 1BD3569B049F3660B0FBB52E /* Pods-OliveAndGoldUITests.release.xcconfig */;
-			buildSettings = {
-				INFOPLIST_FILE = OliveAndGoldUITests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = eecc.OliveAndGoldUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 3.0;
-				TEST_TARGET_NAME = OliveAndGold;
-				USES_XCTRUNNER = YES;
 			};
 			name = Release;
 		};
@@ -909,24 +637,6 @@
 			buildConfigurations = (
 				75C8F2011CBD75C100125AD4 /* Debug */,
 				75C8F2021CBD75C100125AD4 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		75C8F2031CBD75C100125AD4 /* Build configuration list for PBXNativeTarget "OliveAndGoldTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				75C8F2041CBD75C100125AD4 /* Debug */,
-				75C8F2051CBD75C100125AD4 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		75C8F2061CBD75C100125AD4 /* Build configuration list for PBXNativeTarget "OliveAndGoldUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				75C8F2071CBD75C100125AD4 /* Debug */,
-				75C8F2081CBD75C100125AD4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

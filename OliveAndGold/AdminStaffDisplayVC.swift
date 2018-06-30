@@ -35,7 +35,7 @@ class AdminStaffDisplayVC: UIViewController, MFMailComposeViewControllerDelegate
         let  nav = self.navigationController?.navigationBar
         nav?.tintColor = UIColor(red: 155/255, green: 122/255, blue: 41/255, alpha: 1)
         nav?.barTintColor = UIColor(red: 38/255, green: 57/255, blue: 30/255, alpha: 1)
-        nav?.titleTextAttributes = [NSForegroundColorAttributeName: UIColor(red: 155/255, green: 122/255, blue: 41/255, alpha: 1)]
+        nav?.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor(red: 155/255, green: 122/255, blue: 41/255, alpha: 1)]
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"Back", style: .plain, target:nil, action:nil)
         
         setupUI()
