@@ -15,7 +15,7 @@ import Firebase
  
  - The staff VC automatically updates the view so all you need to do is add a new staff member by calling and filling in the parameters with CreateStaffMember!
  
- - When adding a new staff member, the order inwhich the function is called is *VITAL* to the order inwhich you see it on the screen. That being said, if you want to make it so it automatically updates the ordering - alphabetically as requested by Mr Barr - then feel free to do that!
+ - When adding a new staff member, the order in which the function is called is *VITAL* to the order inwhich you see it on the screen. That being said, if you want to make it so it automatically updates the ordering - alphabetically as requested by Mr Barr - then feel free to do that!
  */
 
 class Staff{
@@ -31,13 +31,13 @@ class Staff{
         setUpStaff()
     }
     
-    func setUpStaff()
-    {
+    func setUpStaff() {
         //create a staff member in for-loop (CreteStaffMember)
         fbRef = FIRDatabase.database().reference()
         
         // get reference to {"CCC": { "linksections" : {}}}
         let staffRef = self.fbRef.child("CCC/staff")
+        var imageNames = [String]()
         
         staffRef.observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
             // Initial data grab should be [String : AnyObject] - drill down after that
@@ -51,22 +51,51 @@ class Staff{
                 // This one is an array of strings (but could be empty!)
                 let education: [String] = staffDictionaries[staffMemberName]!["description"] as? [String] ?? []
                 let image = staffData?["image"] as! String
+                imageNames.append(image)
                 let ext = staffData?["ext"] as! Int
-                
-                // If there is no image for this person, use the placeholder image
-                let imageToUse = UIImage(named: image) ?? UIImage(named: "unknown")
-                self.CreateStaffMember(name: name, email: email, title: title, education: education, image: imageToUse!, ext: "\(ext)")
-                
+                let imageToUse = UIImage(named: "unknown.png")
+
+                self.CreateStaffMember(name: name, email: email, title: title, education: education, image: imageToUse!, img_name: image, ext: "\(ext)")
             }
-            // once this completes, call load the scroll view
+            // Nesting a call to get images (in the above loop) from the FB Storage causes problems.
+            // Breaking the database/storage calls up in the following manner seems to work out:
+            self.getImages(imgNames: imageNames)
             self.parentTableVC.setupUI()
         })
     }
     
+    func getImages(imgNames: [String]) {
+        // For the image:
+        // get a reference to the firebase storage DB
+        let fbStorage = FIRStorage.storage()
+        // Note: you can't get a Storage directory listing (to iterate contents) but you could do something clever
+        //       like list files / file groups in the realtime db...
+        for imgName in imgNames {
+            let picRef = fbStorage.reference(forURL: "gs://oliveandgold-8b692.appspot.com/images/staff/ccc/" + imgName + ".png")
+            picRef.data(withMaxSize: 1 * 1024 * 1024, completion: {
+                (data, error) in
+                
+                if error != nil {
+                    print("Image download error: " + (error?.localizedDescription)!)
+                    // If there is no image for this person, use the placeholder image
+                }
+                else {
+                    let imageToUse = UIImage(data: data!)
+                    // set the image in the list
+                    for item in self.staffList {
+                        // contains() is bridged from NSString
+                        if item.GetImageName() == imgName {
+                            item.SetImage(image: imageToUse!)
+                            self.parentTableVC.setStaffViewImageFromScrollView(imgName: imgName)
+                        }
+                    }
+                }
+            })
+        }
+    }
     
-    //You can copy paste this! -> CreateStaffMember(name: "NAMEHERE", email: "EMAILHERE", education: ["DESCRIPTION HERE!"], image: UIImage(named: "IMAGENAME"), ext: "1234")
-    func CreateStaffMember(name: String, email: String, title: String!, education: [String], image: UIImage, ext: String!){
-        staffList.append(StaffMember(name: name, email: email, title: title, desc: education, image: image, phoneExtension: ext))
+    func CreateStaffMember(name: String, email: String, title: String!, education: [String], image: UIImage, img_name: String, ext: String!){
+        staffList.append(StaffMember(name: name, email: email, title: title, desc: education, image: image, imgName: img_name, phoneExtension: ext))
     }
     
     //Retreives the staff member by their name

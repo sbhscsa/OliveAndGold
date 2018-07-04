@@ -7,24 +7,17 @@
 //
 
 import UIKit
+import Firebase
 
 class SPTableViewController: UITableViewController {
     
-    let programsDictionary:[String:String] = [
-        "Band" : "http://www.sbhsbands.org",
-        "Computer Science Academy" : "http://www.sbhscs.org",
-        "Dance" : "http://sbhs.sbunified.org/apps/pages/index.jsp?uREC_ID=317351&type=d&pREC_ID=724677",
-        "Dons Crew" : "https://docs.google.com/a/sbunified.org/forms/d/e/1FAIpQLScB-uw4H0NrCTI9Wd3WAcQ_v2fvBTL41rGbUkQYZt7w5v-xJg/viewform",
-        "MAD Academy" : "http://madacad.com",
-        "Sports Medicine" : "http://sbhs.sbunified.org/apps/pages/index.jsp?uREC_ID=314371&type=d&pREC_ID=720537",
-        "Theatre" : "http://sbhstheatre.com",
-        "VADA Academy" : "https://sites.google.com/a/sbunified.org/vadasbhs/"
-    ]
+    var programs:[Pathway] = []
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
         self.tabBarItem.image = UIImage(named: "specialTabIcon")
         self.tabBarItem.title = "Special Programs"
+        loadData()
     }
     
     override func viewDidLoad() {
@@ -33,19 +26,13 @@ class SPTableViewController: UITableViewController {
     }
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return programsDictionary.count
+        return programs.count
     }
 
     override func tableView(_ tableView:UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell{
-        let cell = tableView.dequeueReusableCell(withIdentifier: "TextCell", for: indexPath)
+        let cell = tableView.dequeueReusableCell(withIdentifier: "TextCell", for: indexPath) as! SPTableViewCell
         
-        let label = cell.viewWithTag(1) as! UILabel
-        
-        for (index, key) in programsDictionary.keys.sorted().enumerated() {
-            if index == (indexPath as NSIndexPath).row {
-                label.text = key
-            }
-        }
+        cell.setData(programs[indexPath.row])
         
         return cell
     }
@@ -58,11 +45,30 @@ class SPTableViewController: UITableViewController {
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"Back", style: .plain, target:nil, action:nil)
     }
     
+    func loadData(){
+		let fbRef = FIRDatabase.database().reference()
+		let pathwaysRef = fbRef.child("specialPrograms/programs")
+		
+		pathwaysRef.observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
+			let srcDict = snapshot.value as? [[String : AnyObject]] ?? [[:]]
+			
+			for dictS in srcDict{
+				let thePath = Pathway(src: dictS)
+				
+				self.programs.append(thePath)
+			}
+		})
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "WebVC"{
-            let webviewVC = segue.destination as! SPWebVC
+        if segue.identifier == "PathwayView"{
+            let pathviewVC = segue.destination as! PathwayView
             let selectedCell = sender as! SPTableViewCell
-            webviewVC.urlToLoad = programsDictionary[selectedCell.specialPLabel.text!]!
+            pathviewVC.pathway = selectedCell.data
+        }
+        else if segue.identifier == "WebVC" {
+            print("Would show SP Web VC at this point...")
+            print("Here comes the crash... wait for it!")
         }
     }
 

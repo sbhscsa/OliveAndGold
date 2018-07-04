@@ -12,9 +12,17 @@ class SPTableViewCell: UITableViewCell {
 
     @IBOutlet var specialPLabel: UILabel!
     
+    var data:Pathway!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+    }
+    
+    func setData(_ src:Pathway){
+        data = src
+        
+        specialPLabel.text = data.name
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

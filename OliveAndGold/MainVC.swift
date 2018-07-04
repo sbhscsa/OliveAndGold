@@ -132,6 +132,29 @@ class MainVC: UITableViewController, MFMailComposeViewControllerDelegate {
         }
     }
     
+    func setStaffViewImageFromScrollView(imgName: String) {
+        for (index, staffMember) in staff.GetStaffList().enumerated() {
+            if staffMember.GetImageName() == imgName {
+                let staffSubViews = scrollView.subviews[index].subviews
+                for subview in staffSubViews {
+                    if let staffImageView = subview as? UIImageView {
+                        staffImageView.image = staffMember.GetImage()
+                        staffImageView.frame.size = CGSize(width: 100, height: 130)
+                        staffImageView.frame.origin = CGPoint(x: CGFloat(viewWidth / 2) - (staffImageView.frame.width / 2), y: 10)
+                        staffImageView.layer.borderColor = backgroundColor.cgColor
+                        staffImageView.layer.borderWidth = 2
+                        staffImageView.layer.cornerRadius = 12
+                        staffImageView.clipsToBounds = true
+                        staffImageView.contentMode = .scaleAspectFit
+                        // don't need to call setNeedsDisplay() on the subview or staffImageView
+                        // because apparently it knows to do that from the mods above...
+                        return
+                    }
+                }
+            }
+        }
+    }
+    
     // This is needed because the tableview will load faster than data will arrive from Firebase
     // So in the Questions class, we call this method after the data is done loading (via a reference
     // to this class that we pass in when creating the Questions object, above in viewDidLoad

@@ -26,32 +26,30 @@ class AdminStaff{
         
        /*        ADMINISTRATION        */
     
-        CreateStaffMember(name: "Dr. John Becchio", email: "jbecchio@sbunified.org",title: "Principal", education: ["Ed.D. Educational Leadership and Administration, General" ,  "M.A. Educational Leadership and Administration, General", "Single Subject Teaching Credential, Secondary Education and Teaching", "B.S. Kinesiology and Exercise Science", "Minor, Spanish" ], image: UIImage(named: "becchio")!, ext: "5001")
+        CreateStaffMember(name: "Dr. John Becchio", email: "jbecchio@sbunified.org",title: "Principal", education: ["Ed.D. Educational Leadership and Administration, General" ,  "M.A. Educational Leadership and Administration, General", "Single Subject Teaching Credential, Secondary Education and Teaching", "B.S. Kinesiology and Exercise Science", "Minor, Spanish" ], image: UIImage(named: "becchio")!, img_name: "becchio", ext: "5001")
 
-        CreateStaffMember(name: "Tiffany Carson", email: "tcarson@sbunified.org", title: "Assistant Principal 12th Grade", education: ["Bachelor of Music Performance, Ithaca College", "Education Specialist, Cal State University Channel Islands", "Preliminary Administrative Services Credential, Santa Barbara County Education Office"], image: UIImage(named: "carson")!, ext: "5002")
+        CreateStaffMember(name: "Tiffany Carson", email: "tcarson@sbunified.org", title: "Assistant Principal 12th Grade", education: ["Bachelor of Music Performance, Ithaca College", "Education Specialist, Cal State University Channel Islands", "Preliminary Administrative Services Credential, Santa Barbara County Education Office"], image: UIImage(named: "carson")!, img_name: "carson", ext: "5002")
         
-        CreateStaffMember(name: "Fred Razo", email: "frazo@sbunified.org", title: "Assistant Principal 9th & 10th Grade", education: ["B.S. Social Science Criminal Justice, Cal Poly San Luis Obispo", "M.S. Counseling Marriage Family Therapy, Cal Poly San Luis Obispo", "Educational Administrative Services Credential, Cal Poly San Luis Obispo"], image: UIImage(named: "razo")!, ext: "5004")
+        CreateStaffMember(name: "Fred Razo", email: "frazo@sbunified.org", title: "Assistant Principal 9th & 10th Grade", education: ["B.S. Social Science Criminal Justice, Cal Poly San Luis Obispo", "M.S. Counseling Marriage Family Therapy, Cal Poly San Luis Obispo", "Educational Administrative Services Credential, Cal Poly San Luis Obispo"], image: UIImage(named: "razo")!, img_name: "razo", ext: "5004")
         
-        CreateStaffMember(name: "Matthew Stockton", email: "mstockton@sbunified.org", title: "Assistant Principal 11th Grade", education: ["B.A. English, California State University, Long Beach", "Master of Education, University of La Verne", "Administrative Services Credential","Single Subject Teaching Credential, English and Social Science"], image: UIImage(named: "stockton")!, ext: "5003")
+        CreateStaffMember(name: "Matthew Stockton", email: "mstockton@sbunified.org", title: "Assistant Principal 11th Grade", education: ["B.A. English, California State University, Long Beach", "Master of Education, University of La Verne", "Administrative Services Credential","Single Subject Teaching Credential, English and Social Science"], image: UIImage(named: "stockton")!, img_name: "stockton", ext: "5003")
         
-        CreateStaffMember(name: "Mario Rodriguez", email: "mariorodriguez@sbunified.org", title: "Dean of Student Engagement", education: ["B.S. Mechanical Engineering, UC Irvine", "M.Ed. Teaching, University of Hawai'i", "Preliminary Administrative Services Credential","California Teaching Credentials: Physics, Math"], image: UIImage(named: "rodriguez")!, ext: "5005")
+        CreateStaffMember(name: "Mario Rodriguez", email: "mariorodriguez@sbunified.org", title: "Dean of Student Engagement", education: ["B.S. Mechanical Engineering, UC Irvine", "M.Ed. Teaching, University of Hawai'i", "Preliminary Administrative Services Credential","California Teaching Credentials: Physics, Math"], image: UIImage(named: "rodriguez")!, img_name: "rodriguez", ext: "5005")
     
     }
     
-    
-    //You can copy paste this! -> CreateStaffMember(name: "NAMEHERE", email: "EMAILHERE", education: ["DESCRIPTION HERE!"], image: UIImage(named: "IMAGENAME"), ext: "1234")
-    func CreateStaffMember(name: String, email: String, title: String!, education: [String],image: UIImage, ext: String!){
-        staffList.append(StaffMember(name: name, email: email, title: title, desc: education ,image: image, phoneExtension: ext))
+    func CreateStaffMember(name: String, email: String, title: String!, education: [String],image: UIImage, img_name: String!, ext: String!){
+        staffList.append(StaffMember(name: name, email: email, title: title, desc: education, image: image, imgName: img_name, phoneExtension: ext))
     }
     
     //Retreives the staff member by their name
-    func GetStaffMember(name: String) -> StaffMember? {
+    func GetStaffMember(name: String) -> StaffMember                                                                                                                                {
         for staffMember in staffList {
             if staffMember.GetName() == name || staffMember.GetName().contains(name) {
                 return staffMember
             }
         }
-        return nil
+        return (nil as StaffMember?)!
     }
     
     func GetStaffList() -> [StaffMember] {

@@ -36,6 +36,10 @@
 		ED4895FE1EC14E32001E0844 /* PrincipalsMessage.pdf in Resources */ = {isa = PBXBuildFile; fileRef = ED4895FD1EC14E32001E0844 /* PrincipalsMessage.pdf */; };
 		ED5A4C931E849E07005988A9 /* Athletics.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = ED5A4C911E849E07005988A9 /* Athletics.storyboard */; };
 		ED5A4C941E849E07005988A9 /* AthleticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ED5A4C921E849E07005988A9 /* AthleticsViewController.swift */; };
+		EDCFEB9520EC905E00041422 /* Pathway.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCFEB9420EC905E00041422 /* Pathway.swift */; };
+		EDCFEB9920EC90D100041422 /* ContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCFEB9620EC90D000041422 /* ContactView.swift */; };
+		EDCFEB9A20EC90D100041422 /* OGContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCFEB9720EC90D000041422 /* OGContact.swift */; };
+		EDCFEB9B20EC90D100041422 /* PathwayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCFEB9820EC90D100041422 /* PathwayView.swift */; };
 		EDD34E391E22D700006F1AF2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EDD34E381E22D700006F1AF2 /* GoogleService-Info.plist */; };
 		EF8B98D021DA7D8C64AC895D /* Pods_OliveAndGold.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE48E69271D39D139A33954A /* Pods_OliveAndGold.framework */; };
 /* End PBXBuildFile section */
@@ -86,6 +90,10 @@
 		ED4895FD1EC14E32001E0844 /* PrincipalsMessage.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = PrincipalsMessage.pdf; sourceTree = "<group>"; };
 		ED5A4C911E849E07005988A9 /* Athletics.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Athletics.storyboard; sourceTree = "<group>"; };
 		ED5A4C921E849E07005988A9 /* AthleticsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AthleticsViewController.swift; sourceTree = "<group>"; };
+		EDCFEB9420EC905E00041422 /* Pathway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pathway.swift; sourceTree = "<group>"; };
+		EDCFEB9620EC90D000041422 /* ContactView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactView.swift; sourceTree = "<group>"; };
+		EDCFEB9720EC90D000041422 /* OGContact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OGContact.swift; sourceTree = "<group>"; };
+		EDCFEB9820EC90D100041422 /* PathwayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathwayView.swift; sourceTree = "<group>"; };
 		EDD34E381E22D700006F1AF2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -248,6 +256,10 @@
 		ED2139601E347F29006F5E9B /* SpecialPrograms */ = {
 			isa = PBXGroup;
 			children = (
+				EDCFEB9620EC90D000041422 /* ContactView.swift */,
+				EDCFEB9720EC90D000041422 /* OGContact.swift */,
+				EDCFEB9820EC90D100041422 /* PathwayView.swift */,
+				EDCFEB9420EC905E00041422 /* Pathway.swift */,
 				ED2139611E347F3C006F5E9B /* SPTableViewCell.swift */,
 				ED2139621E347F3C006F5E9B /* SPTableViewController.swift */,
 				ED2139631E347F3C006F5E9B /* SPWebVC.swift */,
@@ -432,10 +444,12 @@
 				ED2139651E347F3C006F5E9B /* SPTableViewController.swift in Sources */,
 				388CE8E21EC3664700754B81 /* AdminVideoWebViewController.swift in Sources */,
 				D671CBB91E01B9BC008F04E1 /* StaffMember.swift in Sources */,
+				EDCFEB9B20EC90D100041422 /* PathwayView.swift in Sources */,
 				D66D7FBD1E04957E00BB6ABC /* QuestionTableViewCell.swift in Sources */,
 				D671CBBE1E01BA6A008F04E1 /* Extensions.swift in Sources */,
 				ED2139641E347F3C006F5E9B /* SPTableViewCell.swift in Sources */,
 				7568BACC1CD279B700D22B89 /* WebviewVC.swift in Sources */,
+				EDCFEB9520EC905E00041422 /* Pathway.swift in Sources */,
 				38200C401EC0BD8F00D55EDE /* AdminWebViewController.swift in Sources */,
 				ED46452C1E53E3B10019092A /* AdminStaffDisplayVC.swift in Sources */,
 				ED2139661E347F3C006F5E9B /* SPWebVC.swift in Sources */,
@@ -443,10 +457,12 @@
 				ED46452B1E53E3B10019092A /* AdminStaff.swift in Sources */,
 				ED39F4491E2ED4880009B83E /* SettingsVC.swift in Sources */,
 				D63782CB1E025B7700E2DA3E /* StaffDisplayVC.swift in Sources */,
+				EDCFEB9A20EC90D100041422 /* OGContact.swift in Sources */,
 				75C8F1DE1CBD75C100125AD4 /* MainVC.swift in Sources */,
 				D671CBC21E01BD6B008F04E1 /* Questions.swift in Sources */,
 				75C8F1DC1CBD75C100125AD4 /* AppDelegate.swift in Sources */,
 				38200C3F1EC0BD8F00D55EDE /* AdminTableViewCell.swift in Sources */,
+				EDCFEB9920EC90D100041422 /* ContactView.swift in Sources */,
 				D671CBB81E01B9BC008F04E1 /* Staff.swift in Sources */,
 				ED5A4C941E849E07005988A9 /* AthleticsViewController.swift in Sources */,
 				ED46452E1E53E3B10019092A /* AdminVC.swift in Sources */,
@@ -594,7 +610,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.eecc.OliveAndGold;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -614,7 +630,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.eecc.OliveAndGold;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
-				SWIFT_SWIFT3_OBJC_INFERENCE = On;
+				SWIFT_SWIFT3_OBJC_INFERENCE = Default;
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
