@@ -61,11 +61,13 @@ class SPTableViewController: UITableViewController {
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+// NEED THIS VIEW CONTROLLER ON THE STORYBOARD
         if segue.identifier == "PathwayView"{
             let pathviewVC = segue.destination as! PathwayView
             let selectedCell = sender as! SPTableViewCell
             pathviewVC.pathway = selectedCell.data
         }
+// GET TO EXISTING WEBVC FROM LINK FROM ABOVE VC (so probably not via a segue???)
         else if segue.identifier == "WebVC" {
             print("Would show SP Web VC at this point...")
             print("Here comes the crash... wait for it!")

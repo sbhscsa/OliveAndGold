@@ -66,8 +66,7 @@ class AdminVC: UITableViewController, MFMailComposeViewControllerDelegate {
             print("\n\n\n couldn't find Org PDF, didnt load it into urls\n\n\n")
         }
         
-        staff = AdminStaff()
-        setupUI()
+        staff = AdminStaff(parent: self)
     }
 
     override func didReceiveMemoryWarning() {
@@ -136,6 +135,29 @@ class AdminVC: UITableViewController, MFMailComposeViewControllerDelegate {
             staffView.addSubview(staffJobTitle)
             
             AdminScrollView.addSubview(staffView)
+        }
+    }
+    
+    func setStaffViewImageFromScrollView(imgName: String) {
+        for (index, staffMember) in staff.GetStaffList().enumerated() {
+            if staffMember.GetImageName() == imgName {
+                let staffSubViews = AdminScrollView.subviews[index].subviews
+                for subview in staffSubViews {
+                    if let staffImageView = subview as? UIImageView {
+                        staffImageView.image = staffMember.GetImage()
+                        staffImageView.frame.size = CGSize(width: 100, height: 130)
+                        staffImageView.frame.origin = CGPoint(x: CGFloat(viewWidth / 2) - (staffImageView.frame.width / 2), y: 10)
+                        staffImageView.layer.borderColor = backgroundColor.cgColor
+                        staffImageView.layer.borderWidth = 2
+                        staffImageView.layer.cornerRadius = 12
+                        staffImageView.clipsToBounds = true
+                        staffImageView.contentMode = .scaleAspectFit
+                        // don't need to call setNeedsDisplay() on the subview or staffImageView
+                        // because apparently it knows to do that from the mods above...
+                        return
+                    }
+                }
+            }
         }
     }
     
