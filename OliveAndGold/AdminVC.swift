@@ -31,6 +31,7 @@ class AdminVC: UITableViewController, MFMailComposeViewControllerDelegate {
     nameColor:UIColor! = UIColor(red: 38/255, green: 57/255, blue: 30/255, alpha: 1),
     backgroundColor:UIColor! = UIColor(red: 38/255, green: 57/255, blue: 30/255, alpha: 1)
     
+// TODO: PUT THESE URLs IN FIREBASE; DOWNLOAD THE PDFs ON DEMAND...
     // list of URLs for table cells
     private var urls = [ URL(string: "https://1.cdn.edl.io/Yn4kb8cxoCPBrORlThSo16BsIItoPMZxk4SFA7Jupyn4ukSL.pdf")!, //school profile
                          URL(string: "http://sbhs.sbunified.org/apps/video/watch.jsp?v=131522")!,] //promo video 
@@ -51,6 +52,9 @@ class AdminVC: UITableViewController, MFMailComposeViewControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        // These files are in Firebase
+        // gs://oliveandgold-8b692.appspot.com/files/admin/PrincipalsMessage.pdf
+        // gs://oliveandgold-8b692.appspot.com/files/admin/SBHSOrgChart.pdf
         let pmPdf = Bundle.main.url(forResource: "PrincipalsMessage", withExtension: "pdf", subdirectory: nil, localization: nil)
         let orgPdf = Bundle.main.url(forResource: "SBHSOrgChart", withExtension: "pdf", subdirectory: nil, localization: nil)
         

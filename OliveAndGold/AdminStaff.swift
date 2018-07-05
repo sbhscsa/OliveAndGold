@@ -15,7 +15,7 @@ import Firebase
  
  - The staff VC automatically updates the view so all you need to do is add a new staff member by calling and filling in the parameters with CreateStaffMember!
  
- - When adding a new staff member, the order inwhich the function is called is *VITAL* to the order inwhich you see it on the screen. That being said, if you want to make it so it automatically updates the ordering - alphabetically as requested by Mr Barr - then feel free to do that!
+ - When adding a new staff member, the order in which the function is called is *VITAL* to the order inwhich you see it on the screen. That being said, if you want to make it so it automatically updates the ordering - alphabetically as requested by Mr Barr - then feel free to do that!
  */
 
 class AdminStaff{
@@ -104,6 +104,7 @@ class AdminStaff{
     }
     
     func GetStaffList() -> [StaffMember] {
-        return staffList
+        // Put them in order by extension; that puts the Principal first, AP for Seniors second, etc!
+        return staffList.sorted(by: {$0.GetPhoneExtension() < $1.GetPhoneExtension()})
     }
 }
