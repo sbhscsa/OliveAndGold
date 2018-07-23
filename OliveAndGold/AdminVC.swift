@@ -8,7 +8,7 @@
 
 import UIKit
 import MessageUI
-
+import Firebase
 
 class AdminVC: UITableViewController, MFMailComposeViewControllerDelegate {
 
@@ -16,6 +16,8 @@ class AdminVC: UITableViewController, MFMailComposeViewControllerDelegate {
     Green color is UIColor(red: 38/255, green: 57/255, blue: 30/255, alpha: 1)
     Gold is UIColor(red: 155/255, green: 122/255, blue: 41/255, alpha: 1)
     */
+    
+    private var fbRef: FIRDatabaseReference!
     
     //Questions & staff fields
     private var staff:AdminStaff!,
@@ -31,14 +33,10 @@ class AdminVC: UITableViewController, MFMailComposeViewControllerDelegate {
     nameColor:UIColor! = UIColor(red: 38/255, green: 57/255, blue: 30/255, alpha: 1),
     backgroundColor:UIColor! = UIColor(red: 38/255, green: 57/255, blue: 30/255, alpha: 1)
     
-// TODO: PUT THESE URLs IN FIREBASE; DOWNLOAD THE PDFs ON DEMAND...
     // list of URLs for table cells
-    private var urls = [ URL(string: "https://1.cdn.edl.io/Yn4kb8cxoCPBrORlThSo16BsIItoPMZxk4SFA7Jupyn4ukSL.pdf")!, //school profile
-                         URL(string: "http://sbhs.sbunified.org/apps/video/watch.jsp?v=131522")!,] //promo video 
-                        //admin org chart added in viewDidLoad
-    
-    private let cellNames = [ "Principals's Message", "School Profile", "Promotional Video", "Admin Org Chart"]
-                        // need one for loading url filepath for org chart
+    //private var urls = [String]() //promo video
+    private var cellNames = ["Principals's Message":"", "Admin Org Chart":"", "School Profile":"", "Promotional Video":""]
+
     
     //Storyboard outlets
     @IBOutlet weak var AdminScrollView: UIScrollView!
@@ -52,23 +50,28 @@ class AdminVC: UITableViewController, MFMailComposeViewControllerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // These files are in Firebase
-        // gs://oliveandgold-8b692.appspot.com/files/admin/PrincipalsMessage.pdf
-        // gs://oliveandgold-8b692.appspot.com/files/admin/SBHSOrgChart.pdf
-        let pmPdf = Bundle.main.url(forResource: "PrincipalsMessage", withExtension: "pdf", subdirectory: nil, localization: nil)
-        let orgPdf = Bundle.main.url(forResource: "SBHSOrgChart", withExtension: "pdf", subdirectory: nil, localization: nil)
+        // get links
+        fbRef = FIRDatabase.database().reference()
         
-        if pmPdf != nil {
-            urls.insert(pmPdf!, at: 0)
-        } else {
-            print("\n\n\n couldn't find principal's message PDF, didnt load it into urls\n\n\n")
-        }
+        // get reference to {"CCC": { "linksections" : {}}}
+        let staffRef = self.fbRef.child("admin/links")
         
-        if orgPdf != nil{
-            urls.append(orgPdf!)
-        } else{
-            print("\n\n\n couldn't find Org PDF, didnt load it into urls\n\n\n")
-        }
+        staffRef.observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
+            let linksDictionaries = snapshot.value as? [String : String] ?? [:]
+            for linkKey in linksDictionaries.keys {
+                let link = linksDictionaries[linkKey]! as String
+                if linkKey == "message" {
+                    self.cellNames["Principals's Message"] = link
+                } else if linkKey == "orgchart" {
+                    self.cellNames["Admin Org Chart"] = link
+                } else if linkKey == "profile" {
+                    self.cellNames["School Profile"] = link
+                } else { // linkKey == "promo"
+                    self.cellNames["Promotional Video"] = link
+                }
+            }
+            self.tableView.reloadData()
+        })
         
         staff = AdminStaff(parent: self)
     }
@@ -185,14 +188,57 @@ class AdminVC: UITableViewController, MFMailComposeViewControllerDelegate {
     }
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
-        if cellNames[indexPath.row] == "Promotional Video" {
+        // check cell contents in same order as they were displayed
+        let visibleStrings = self.cellNames.keys.sorted()
+        if visibleStrings[indexPath.row] == "Promotional Video" {
             let webVideoVC = AdminVideoWebViewController()
             self.navigationController?.pushViewController(webVideoVC, animated: true)
         } else {
             let webVC = storyboard?.instantiateViewController(withIdentifier: "AdminWebviewVC") as! AdminWebViewController
-            webVC.url = urls[indexPath.row]
-            self.navigationController?.pushViewController(webVC, animated: true)
+            let fileURLStr = self.cellNames[visibleStrings[indexPath.row]]!
+            if fileURLStr.starts(with: "gs") { // we're gonna load a file from Firebase Storage
+                
+                if let fileURL = URL(string: fileURLStr) {
+                    // document folder url
+                    let documentsUrl = try! FileManager.default.url(for: .documentDirectory, in: .userDomainMask, appropriateFor: nil, create: true)
+                    // destination file url
+                    let destination = documentsUrl.appendingPathComponent(fileURL.lastPathComponent)
+                    print("local path to file: " + destination.path)
+                    // check if it exists before downloading
+// TODO: WHAT IF IT'S STALE?
+                    if FileManager().fileExists(atPath: destination.path) {
+                        print("The file already exists at path")
+                        webVC.url = destination
+                        self.navigationController?.pushViewController(webVC, animated: true)
+                    } else { // gotta get it from Firebase first
+                        //  if the file doesn't exist get data from Firebase
+                        let fbStorage = FIRStorage.storage()
+                        let fileRef = fbStorage.reference(forURL: fileURLStr)
+                        fileRef.data(withMaxSize: 1 * 1024 * 1024, completion: {
+                            (data, error) in
+                            
+                            if error != nil {
+                                print("File download error: " + (error?.localizedDescription)!)
+                            }
+                            else {
+                                // store the data
+                                print("downloading and storing " + fileURLStr)
+                                let result = FileManager.default.createFile(atPath: destination.path, contents: data, attributes: nil)
+                                if result {
+                                webVC.url = destination
+                                self.navigationController?.pushViewController(webVC, animated: true)
+                                } else {
+                                    print("error creating file at: " + destination.path)
+                                }
+                            }
+                        })
+                    }
+                }
+                
+            } else { // not a PDF; load an actual web page
+                webVC.url = URL(string: fileURLStr)
+                self.navigationController?.pushViewController(webVC, animated: true)
+            }
         }
     }
 
@@ -204,16 +250,16 @@ class AdminVC: UITableViewController, MFMailComposeViewControllerDelegate {
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return urls.count
+        return self.cellNames.count
     }
 
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "adminCell", for: indexPath) as! AdminTableViewCell
         
-//        let url = urls[indexPath.row]
-        cell.rowLabel.text = cellNames[indexPath.row]
-
+        // display the cell contents in alphabetical order
+        let visibleStrings = self.cellNames.keys.sorted()
+        cell.rowLabel.text = visibleStrings[indexPath.row]
         
         return cell
     }

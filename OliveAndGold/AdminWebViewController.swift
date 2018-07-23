@@ -18,18 +18,19 @@ class AdminWebViewController: UIViewController, WKNavigationDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        webView = WKWebView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
-        webView.navigationDelegate = self
+        self.webView = WKWebView(frame: CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height))
+        self.webView.navigationDelegate = self
         
-        webView.allowsBackForwardNavigationGestures = true
+        self.webView.allowsBackForwardNavigationGestures = true
         
         if url == nil{
             url = dUrl
             print("\n\n\n BUHHHHHH URL DID NOT WORK\n\n\n")
         }
-        webView.load(URLRequest(url: url!))
+
+        self.webView.load(URLRequest(url: url!))
         
-        view.addSubview(webView)
+        view.addSubview(self.webView)
 
         // Do any additional setup after loading the view.
     }
