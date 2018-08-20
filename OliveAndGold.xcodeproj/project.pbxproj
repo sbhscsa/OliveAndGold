@@ -39,7 +39,7 @@
 		EDCFEB9520EC905E00041422 /* Pathway.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCFEB9420EC905E00041422 /* Pathway.swift */; };
 		EDCFEB9920EC90D100041422 /* ContactView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCFEB9620EC90D000041422 /* ContactView.swift */; };
 		EDCFEB9A20EC90D100041422 /* OGContact.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCFEB9720EC90D000041422 /* OGContact.swift */; };
-		EDCFEB9B20EC90D100041422 /* PathwayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCFEB9820EC90D100041422 /* PathwayView.swift */; };
+		EDCFEB9B20EC90D100041422 /* PathwayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EDCFEB9820EC90D100041422 /* PathwayViewController.swift */; };
 		EDD34E391E22D700006F1AF2 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EDD34E381E22D700006F1AF2 /* GoogleService-Info.plist */; };
 		EF8B98D021DA7D8C64AC895D /* Pods_OliveAndGold.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DE48E69271D39D139A33954A /* Pods_OliveAndGold.framework */; };
 /* End PBXBuildFile section */
@@ -93,7 +93,7 @@
 		EDCFEB9420EC905E00041422 /* Pathway.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Pathway.swift; sourceTree = "<group>"; };
 		EDCFEB9620EC90D000041422 /* ContactView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ContactView.swift; sourceTree = "<group>"; };
 		EDCFEB9720EC90D000041422 /* OGContact.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OGContact.swift; sourceTree = "<group>"; };
-		EDCFEB9820EC90D100041422 /* PathwayView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathwayView.swift; sourceTree = "<group>"; };
+		EDCFEB9820EC90D100041422 /* PathwayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PathwayViewController.swift; sourceTree = "<group>"; };
 		EDD34E381E22D700006F1AF2 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -258,7 +258,7 @@
 			children = (
 				EDCFEB9620EC90D000041422 /* ContactView.swift */,
 				EDCFEB9720EC90D000041422 /* OGContact.swift */,
-				EDCFEB9820EC90D100041422 /* PathwayView.swift */,
+				EDCFEB9820EC90D100041422 /* PathwayViewController.swift */,
 				EDCFEB9420EC905E00041422 /* Pathway.swift */,
 				ED2139611E347F3C006F5E9B /* SPTableViewCell.swift */,
 				ED2139621E347F3C006F5E9B /* SPTableViewController.swift */,
@@ -444,7 +444,7 @@
 				ED2139651E347F3C006F5E9B /* SPTableViewController.swift in Sources */,
 				388CE8E21EC3664700754B81 /* AdminVideoWebViewController.swift in Sources */,
 				D671CBB91E01B9BC008F04E1 /* StaffMember.swift in Sources */,
-				EDCFEB9B20EC90D100041422 /* PathwayView.swift in Sources */,
+				EDCFEB9B20EC90D100041422 /* PathwayViewController.swift in Sources */,
 				D66D7FBD1E04957E00BB6ABC /* QuestionTableViewCell.swift in Sources */,
 				D671CBBE1E01BA6A008F04E1 /* Extensions.swift in Sources */,
 				ED2139641E347F3C006F5E9B /* SPTableViewCell.swift in Sources */,

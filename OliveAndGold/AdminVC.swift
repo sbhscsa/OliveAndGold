@@ -206,6 +206,9 @@ class AdminVC: UITableViewController, MFMailComposeViewControllerDelegate {
                     print("local path to file: " + destination.path)
                     // check if it exists before downloading
 // TODO: WHAT IF IT'S STALE?
+// A: FileManager has methods such as attributesOfItem(atPath:) where attributes are things like modification date, size, etc.
+//    so we could download (regardless of whether it's already present) every N days/weeks/months/years and compare the
+//    downloaded file to the local one, and replace the local one if it's stale.
                     if FileManager().fileExists(atPath: destination.path) {
                         print("The file already exists at path")
                         webVC.url = destination

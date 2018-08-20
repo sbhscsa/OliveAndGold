@@ -12,6 +12,8 @@ import Firebase
 class SPTableViewController: UITableViewController {
     
     var programs:[Pathway] = []
+    var logoNames:[String] = []
+    var directorNames:[String] = []
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
@@ -37,6 +39,13 @@ class SPTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let pvc = storyboard?.instantiateViewController(withIdentifier: "PathwayVC") as! PathwayViewController
+        let selectedCell = tableView.cellForRow(at: indexPath) as! SPTableViewCell
+        pvc.pathway = selectedCell.data
+        self.navigationController?.pushViewController(pvc, animated: true)
+    }
+    
     func setup(){
         let  nav = self.navigationController?.navigationBar
         nav?.tintColor = UIColor(red: 155/255, green: 122/255, blue: 41/255, alpha: 1)
@@ -54,24 +63,88 @@ class SPTableViewController: UITableViewController {
 			
 			for dictS in srcDict{
 				let thePath = Pathway(src: dictS)
+                self.logoNames.append(dictS["logo"] as! String)
+                self.directorNames.append(dictS["director"] as! String)
 				
 				self.programs.append(thePath)
 			}
+            self.getStaffImages(imgNames: self.directorNames)
+            self.getLogoImages(imgNames: self.logoNames)
 		})
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-// NEED THIS VIEW CONTROLLER ON THE STORYBOARD
-        if segue.identifier == "PathwayView"{
-            let pathviewVC = segue.destination as! PathwayView
-            let selectedCell = sender as! SPTableViewCell
-            pathviewVC.pathway = selectedCell.data
-        }
-// GET TO EXISTING WEBVC FROM LINK FROM ABOVE VC (so probably not via a segue???)
-        else if segue.identifier == "WebVC" {
-            print("Would show SP Web VC at this point...")
-            print("Here comes the crash... wait for it!")
+    func getStaffImages(imgNames: [String]) {
+        // For the image:
+        // get a reference to the firebase storage DB
+        let fbStorage = FIRStorage.storage()
+        // Note: you can't get a Storage directory listing (to iterate contents) but you could do something clever
+        //       like list files / file groups in the realtime db...
+        for imgName in imgNames {
+            let picRef = fbStorage.reference(forURL: "gs://oliveandgold-8b692.appspot.com/images/staff/specialPrograms/" + imgName + ".png")
+            picRef.data(withMaxSize: 1 * 1024 * 1024, completion: {
+                (data, error) in
+                
+                if error != nil {
+                    print("Image download error: " + (error?.localizedDescription)!)
+                    // If there is no image for this person, use the placeholder image
+                }
+                else {
+                    let imageToUse = UIImage(data: data!)
+                    // set the image in the list
+                    for item in self.programs {
+                        // contains() is bridged from NSString
+                        if item.dir_img_name == imgName {
+                            item.director.face = imageToUse
+                        }
+                    }
+                }
+            })
+            self.tableView.reloadData()
         }
     }
+    
+    func getLogoImages(imgNames: [String]) {
+        // For the image:
+        // get a reference to the firebase storage DB
+        let fbStorage = FIRStorage.storage()
+        // Note: you can't get a Storage directory listing (to iterate contents) but you could do something clever
+        //       like list files / file groups in the realtime db...
+        for imgName in imgNames {
+            let picRef = fbStorage.reference(forURL: "gs://oliveandgold-8b692.appspot.com/images/logos/" + imgName + ".png")
+            picRef.data(withMaxSize: 1 * 1024 * 1024, completion: {
+                (data, error) in
+                
+                if error != nil {
+                    print("Image download error: " + (error?.localizedDescription)!)
+                    // If there is no image for this person, use the placeholder image
+                }
+                else {
+                    let imageToUse = UIImage(data: data!)
+                    // set the image in the list
+                    for item in self.programs {
+                        // contains() is bridged from NSString
+                        if item.logo_name == imgName {
+                            item.logo = imageToUse!
+                        }
+                    }
+                }
+            })
+            self.tableView.reloadData()
+        }
+    }
+    
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//// NEED THIS VIEW CONTROLLER ON THE STORYBOARD
+//        if segue.identifier == "PathwayView"{
+//            let pathviewVC = segue.destination as! PathwayViewController
+//            let selectedCell = sender as! SPTableViewCell
+//            pathviewVC.pathway = selectedCell.data
+//        }
+//// GET TO EXISTING WEBVC FROM LINK FROM ABOVE VC (so probably not via a segue???)
+//        else if segue.identifier == "WebVC" {
+//            print("Would show SP Web VC at this point...")
+//            print("Here comes the crash... wait for it!")
+//        }
+//    }
 
 }

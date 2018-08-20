@@ -31,7 +31,7 @@ class OGContact{
     }
 	
 	init(){
-		self.face = #imageLiteral(resourceName: "unknown")
+		self.face = UIImage(named: "unknown")
 		self.name = "?"
 		self.email = "?@?.?"
 		self.department = "?"
