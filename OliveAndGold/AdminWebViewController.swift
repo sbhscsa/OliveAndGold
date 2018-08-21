@@ -12,6 +12,7 @@ import WebKit
 class AdminWebViewController: UIViewController, WKNavigationDelegate {
     var webView:WKWebView!
     var url:URL?
+    var isData:Bool = false
     
     let dUrl = URL(string: "http://sbhs.sbunified.org")
     
@@ -27,8 +28,13 @@ class AdminWebViewController: UIViewController, WKNavigationDelegate {
             url = dUrl
             print("\n\n\n BUHHHHHH URL DID NOT WORK\n\n\n")
         }
-
-        self.webView.load(URLRequest(url: url!))
+        
+        if isData {
+            let data = try! Data(contentsOf: url!)
+            self.webView.load(data, mimeType: "application/pdf", characterEncodingName: "", baseURL: (self.url?.deletingLastPathComponent())!)
+        } else {
+            self.webView.load(URLRequest(url: url!))
+        }
         
         view.addSubview(self.webView)
 

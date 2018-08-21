@@ -196,7 +196,7 @@ class AdminVC: UITableViewController, MFMailComposeViewControllerDelegate {
         } else {
             let webVC = storyboard?.instantiateViewController(withIdentifier: "AdminWebviewVC") as! AdminWebViewController
             let fileURLStr = self.cellNames[visibleStrings[indexPath.row]]!
-            if fileURLStr.starts(with: "gs") { // we're gonna load a file from Firebase Storage
+            if fileURLStr.starts(with: "gs") { // we're gonna load a (pdf) file from Firebase Storage
                 
                 if let fileURL = URL(string: fileURLStr) {
                     // document folder url
@@ -211,6 +211,7 @@ class AdminVC: UITableViewController, MFMailComposeViewControllerDelegate {
 //    downloaded file to the local one, and replace the local one if it's stale.
                     if FileManager().fileExists(atPath: destination.path) {
                         print("The file already exists at path")
+                        webVC.isData = true
                         webVC.url = destination
                         self.navigationController?.pushViewController(webVC, animated: true)
                     } else { // gotta get it from Firebase first
@@ -228,8 +229,9 @@ class AdminVC: UITableViewController, MFMailComposeViewControllerDelegate {
                                 print("downloading and storing " + fileURLStr)
                                 let result = FileManager.default.createFile(atPath: destination.path, contents: data, attributes: nil)
                                 if result {
-                                webVC.url = destination
-                                self.navigationController?.pushViewController(webVC, animated: true)
+                                    webVC.isData = true
+                                    webVC.url = destination
+                                    self.navigationController?.pushViewController(webVC, animated: true)
                                 } else {
                                     print("error creating file at: " + destination.path)
                                 }
@@ -237,7 +239,6 @@ class AdminVC: UITableViewController, MFMailComposeViewControllerDelegate {
                         })
                     }
                 }
-                
             } else { // not a PDF; load an actual web page
                 webVC.url = URL(string: fileURLStr)
                 self.navigationController?.pushViewController(webVC, animated: true)
