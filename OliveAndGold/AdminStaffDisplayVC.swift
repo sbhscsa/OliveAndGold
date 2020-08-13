@@ -35,7 +35,7 @@ class AdminStaffDisplayVC: UIViewController, MFMailComposeViewControllerDelegate
         let  nav = self.navigationController?.navigationBar
         nav?.tintColor = UIColor(red: 155/255, green: 122/255, blue: 41/255, alpha: 1)
         nav?.barTintColor = UIColor(red: 38/255, green: 57/255, blue: 30/255, alpha: 1)
-        nav?.titleTextAttributes = [NSAttributedStringKey.foregroundColor: UIColor(red: 155/255, green: 122/255, blue: 41/255, alpha: 1)]
+        nav?.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 155/255, green: 122/255, blue: 41/255, alpha: 1)]
         self.navigationItem.backBarButtonItem = UIBarButtonItem(title:"Back", style: .plain, target:nil, action:nil)
         
         setupUI()
@@ -123,7 +123,7 @@ class AdminStaffDisplayVC: UIViewController, MFMailComposeViewControllerDelegate
     @IBAction func callButton(_ sender: UIButton) {
         if let phone = NSURL(string: "tel://\(staffMember.GetPhoneNumber())") {
             print("[DBG] Calling \(staffMember.GetName()) was successful!")
-             UIApplication.shared.openURL(phone as URL)
+             UIApplication.shared.open(phone as URL, options: [:], completionHandler: nil)
         } else {
             let alert:UIAlertController = UIAlertController(title: "Error!", message: "Failed to make call due to unknown error!", preferredStyle: .alert)
             print("[DBG] Failed to call \(staffMember.GetPhoneNumber())")

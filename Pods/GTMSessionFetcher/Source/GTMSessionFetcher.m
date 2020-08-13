@@ -909,9 +909,9 @@ NSData * GTM_NULLABLE_TYPE GTMDataFromInputStream(NSInputStream *inputStream, NS
       // Callback from test block.
       if (response == nil && responseData == nil && error == nil) {
         // Assume the fetcher should execute rather than be tested.
-        _testBlock = nil;
-        _isUsingTestBlock = NO;
-        [_sessionTask resume];
+          self->_testBlock = nil;
+          self->_isUsingTestBlock = NO;
+          [self->_sessionTask resume];
         return;
       }
 
@@ -941,7 +941,7 @@ NSData * GTM_NULLABLE_TYPE GTMDataFromInputStream(NSInputStream *inputStream, NS
         NSURL *bodyFileURL = self.bodyFileURL;
         if (bodyFileURL) {
           NSError *readError;
-          _bodyData = [NSData dataWithContentsOfURL:bodyFileURL
+            self->_bodyData = [NSData dataWithContentsOfURL:bodyFileURL
                                             options:NSDataReadingMappedIfSafe
                                               error:&readError];
           error = readError;
@@ -954,7 +954,7 @@ NSData * GTM_NULLABLE_TYPE GTMDataFromInputStream(NSInputStream *inputStream, NS
         // delaying callbacks here at least to the next spin of the run loop.  That keeps
         // immediate, synchronous setting of callback blocks after beginFetch working in tests.
         dispatch_async(dispatch_get_main_queue(), ^{
-          [self simulateDataCallbacksForTestBlockWithBodyData:_bodyData
+            [self simulateDataCallbacksForTestBlockWithBodyData:self->_bodyData
                                                      response:response
                                                  responseData:responseData
                                                         error:error];
@@ -1007,7 +1007,7 @@ NSData * GTM_NULLABLE_TYPE GTMDataFromInputStream(NSInputStream *inputStream, NS
     if (willRedirectBlock) {
       [self invokeOnCallbackUnsynchronizedQueueAfterUserStopped:YES
                                                           block:^{
-          willRedirectBlock((NSHTTPURLResponse *)response, _request,
+          willRedirectBlock((NSHTTPURLResponse *)response, self->_request,
                              ^(NSURLRequest *redirectRequest) {
               // For simulation, we'll assume the app will just continue.
           });
@@ -1022,8 +1022,8 @@ NSData * GTM_NULLABLE_TYPE GTMDataFromInputStream(NSInputStream *inputStream, NS
     if (_challengeBlock) {
       [self invokeOnCallbackUnsynchronizedQueueAfterUserStopped:YES
                                                           block:^{
-        if (_challengeBlock) {
-          NSURL *requestURL = _request.URL;
+          if (self->_challengeBlock) {
+              NSURL *requestURL = self->_request.URL;
           NSString *host = requestURL.host;
           NSURLProtectionSpace *pspace =
               [[NSURLProtectionSpace alloc] initWithHost:host
@@ -1040,7 +1040,7 @@ NSData * GTM_NULLABLE_TYPE GTMDataFromInputStream(NSInputStream *inputStream, NS
                                                             failureResponse:nil
                                                                       error:nil
                                                                      sender:unusedSender];
-          _challengeBlock(self, challenge, ^(NSURLSessionAuthChallengeDisposition disposition,
+              self->_challengeBlock(self, challenge, ^(NSURLSessionAuthChallengeDisposition disposition,
                                              NSURLCredential * GTM_NULLABLE_TYPE credential){
             // We could change the responseData and responseError based on the disposition,
             // but it's easier for apps to just supply the expected data and error
@@ -1765,7 +1765,7 @@ NSData * GTM_NULLABLE_TYPE GTMDataFromInputStream(NSInputStream *inputStream, NS
                          afterUserStopped:YES
                                     block:^{
                   resumeBlock(resumeData);
-                  dispatch_group_leave(_callbackGroup);
+                  dispatch_group_leave(self->_callbackGroup);
               }];
           }];
         }
@@ -2050,14 +2050,14 @@ didReceiveResponse:(NSURLResponse *)response
       @synchronized(self) {
         GTMSessionMonitorSynchronized(self);
 
-        BOOL hadPreviousData = _downloadedLength > 0;
+          BOOL hadPreviousData = self->_downloadedLength > 0;
 
-        [_downloadedData setLength:0];
-        _downloadedLength = 0;
+          [self->_downloadedData setLength:0];
+          self->_downloadedLength = 0;
 
         if (hadPreviousData && (dispositionValue != NSURLSessionResponseCancel)) {
           // Tell the accumulate block to discard prior data.
-          GTMSessionFetcherAccumulateDataBlock accumulateBlock = _accumulateDataBlock;
+            GTMSessionFetcherAccumulateDataBlock accumulateBlock = self->_accumulateDataBlock;
           if (accumulateBlock) {
             [self invokeOnCallbackQueueUnlessStopped:^{
                 accumulateBlock(nil);
@@ -2155,7 +2155,7 @@ didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge
               NSURLCredential *trustCredential = [NSURLCredential credentialForTrust:trustRef];
               handler(NSURLSessionAuthChallengeUseCredential, trustCredential);
             } else {
-              GTMSESSION_LOG_DEBUG(@"Cancelling authentication challenge for %@", _request.URL);
+                GTMSESSION_LOG_DEBUG(@"Cancelling authentication challenge for %@", self->_request.URL);
               handler(NSURLSessionAuthChallengeCancelAuthenticationChallenge, nil);
             }
           };
@@ -2288,13 +2288,13 @@ didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge
   if (callbackQueue) {
     dispatch_group_async(_callbackGroup, callbackQueue, ^{
         if (!afterStopped) {
-          NSDate *serviceStoppedAllDate = [_service stoppedAllFetchersDate];
+            NSDate *serviceStoppedAllDate = [self->_service stoppedAllFetchersDate];
 
           @synchronized(self) {
             GTMSessionMonitorSynchronized(self);
 
             // Avoid a race between stopFetching and the callback.
-            if (_userStoppedFetching) {
+              if (self->_userStoppedFetching) {
               return;
             }
 
@@ -2304,7 +2304,7 @@ didReceiveChallenge:(NSURLAuthenticationChallenge *)challenge
             // but the app still won't expect the callback to fire after
             // the service's stopAllFetchers was invoked.
             if (serviceStoppedAllDate
-                && [_initialBeginFetchDate compare:serviceStoppedAllDate] != NSOrderedDescending) {
+                && [self->_initialBeginFetchDate compare:serviceStoppedAllDate] != NSOrderedDescending) {
               // stopAllFetchers was called after this fetcher began.
               return;
             }
@@ -2420,7 +2420,7 @@ totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend {
       @synchronized(self) {
         GTMSessionMonitorSynchronized(self);
 
-        progressBlock = _sendProgressBlock;
+          progressBlock = self->_sendProgressBlock;
       }
       if (progressBlock) {
         progressBlock(bytesSent, totalBytesSent, totalBytesExpectedToSend);
@@ -2474,10 +2474,10 @@ totalBytesExpectedToSend:(int64_t)totalBytesExpectedToSend {
             @synchronized(self) {
               GTMSessionMonitorSynchronized(self);
 
-              progressBlock = _receivedProgressBlock;
+                progressBlock = self->_receivedProgressBlock;
             }
             if (progressBlock) {
-              progressBlock((int64_t)bufferLength, _downloadedLength);
+                progressBlock((int64_t)bufferLength, self->_downloadedLength);
             }
         }];
       }
@@ -2538,7 +2538,7 @@ totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite {
       @synchronized(self) {
         GTMSessionMonitorSynchronized(self);
 
-        progressBlock = _downloadProgressBlock;
+          progressBlock = self->_downloadProgressBlock;
       }
       if (progressBlock) {
         progressBlock(bytesWritten, totalBytesWritten, totalBytesExpectedToWrite);

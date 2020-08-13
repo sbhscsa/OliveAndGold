@@ -35,7 +35,7 @@ class Staff{
         //create a staff member in for-loop (CreteStaffMember)
         fbRef = FIRDatabase.database().reference()
         
-        // get reference to {"CCC": { "linksections" : {}}}
+        // get reference to {"CCC": { "staff" : {}}}
         let staffRef = self.fbRef.child("CCC/staff")
         var imageNames = [String]()
         

@@ -27,10 +27,10 @@ class AdminStaff{
     
     init(parent: AdminVC) {
         self.parentTableVC = parent
-        //create a staff member in for-loop (CreteStaffMember)
+        // create a staff member in for-loop (CreateStaffMember)
         fbRef = FIRDatabase.database().reference()
         
-        // get reference to {"CCC": { "linksections" : {}}}
+        // get reference to {"admin": { "staff" : {}}}
         let staffRef = self.fbRef.child("admin/staff")
         var imageNames = [String]()
         

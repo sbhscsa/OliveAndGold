@@ -115,7 +115,7 @@ class StaffDisplayVC: UIViewController, MFMailComposeViewControllerDelegate {
     @IBAction func callButton(_ sender: UIButton) {
         if let phone = NSURL(string: "tel://\(staffMember.GetPhoneNumber())") {
             print("[DBG] Calling \(staffMember.GetName()) was successful!")
-             UIApplication.shared.openURL(phone as URL)
+             UIApplication.shared.open(phone as URL, options: [:], completionHandler: nil)
         } else {
             let alert:UIAlertController = UIAlertController(title: "Error!", message: "Failed to make call due to unknown error!", preferredStyle: .alert)
             print("[DBG] Failed to call \(staffMember.GetPhoneNumber())")

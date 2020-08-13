@@ -1,7 +1,10 @@
 import UIKit
 import WebKit
+import Firebase
 
 class AthleticsViewController: UIViewController, WKNavigationDelegate {
+    private var fbRef: FIRDatabaseReference!
+    private var urlToLoad : String = "https://sbhs.sbunified.org/"
     
     var webView: WKWebView!
     
@@ -13,6 +16,16 @@ class AthleticsViewController: UIViewController, WKNavigationDelegate {
         super.init(coder: aDecoder)
         self.tabBarItem.image = UIImage(named: "athleticsTabIcon")
         self.tabBarItem.title = "Athletics"
+        
+        // get link to athletics webpage from firebase
+        fbRef = FIRDatabase.database().reference()
+        
+        // get reference to {"athletics": { "mainURL" : "url:string"}}
+        let linkRef = self.fbRef.child("athletics/mainURL")
+        
+        linkRef.observeSingleEvent(of: FIRDataEventType.value, with: { (snapshot) in
+            self.urlToLoad = snapshot.value as? String ?? "https://sbhs.sbunified.org/"
+        })
     }
     
     override func viewDidLoad() {
@@ -25,7 +38,7 @@ class AthleticsViewController: UIViewController, WKNavigationDelegate {
         // But it works here...
         // Apparently sizing is deferred until subview layout happens
         setupBrowser()
-        webViewLoadURL(urlString: "http://www.sbhsathletics.org")
+        webViewLoadURL(urlString: self.urlToLoad)
     }
     
     func webViewLoadURL(urlString: String) {
@@ -39,11 +52,7 @@ class AthleticsViewController: UIViewController, WKNavigationDelegate {
     }
     
     func setupBrowser() {
-        let preferences = WKPreferences()
-        preferences.javaScriptEnabled = true
-        
         let configuration = WKWebViewConfiguration()
-        configuration.preferences = preferences
         
         // create instance of web view
         // the y offset has to be zero or there's a navbar-sized gray band between the
