@@ -16,8 +16,9 @@ class WebviewVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         webview.frame.size = self.view.frame.size
-        print("[DBG] Navigating the webview to '", urlToLoad, "'")
-        webview.loadRequest(URLRequest(url: URL(string: urlToLoad)!))
+        // Bad URLs can crash this...
+        print("[DBG] Navigating the webview to '", urlToLoad ?? "https://sbhs.sbunified.org/", "'")
+        webview.loadRequest(URLRequest(url: URL(string: urlToLoad ?? "https://sbhs.sbunified.org/")!))
         
     }
     

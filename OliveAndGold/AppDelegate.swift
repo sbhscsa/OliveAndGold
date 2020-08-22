@@ -22,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let adminStoryboard = UIStoryboard(name: "AdminStoryboard", bundle: nil)
         let athleticsStoryboard = UIStoryboard(name: "Athletics", bundle: nil)
+        let specialProgramsStoryboard = UIStoryboard(name: "SpecialPrograms", bundle: nil)
         
         // Get the Admin tab view controller from the storyboard
         let adminTabVC = adminStoryboard.instantiateViewController(withIdentifier: "AdminNavVC") as! UINavigationController
@@ -33,14 +34,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let athleticsTabVC = athleticsStoryboard.instantiateViewController(withIdentifier: "AthleticsVC") as! AthleticsViewController
         
         // Get the Special Programs tab view controller from the storyboard
-        let specialTabVC = storyboard.instantiateViewController(withIdentifier: "SpecialNavVC") as! UINavigationController
+        let specialTabVC = specialProgramsStoryboard.instantiateViewController(withIdentifier: "SpecialNavVC") as! UINavigationController
         
         // Get the Settings tab view controller from the storyboard
 //        let settingsTabVC = storyboard.instantiateViewController(withIdentifier: "SettingsVC") as! SettingsVC
         
         // Make a tab bar controller and set its tabs (view controller array)
         let tabVC = UITabBarController()
-        tabVC.viewControllers = [adminTabVC, cccTabVC, athleticsTabVC, specialTabVC]
+        tabVC.viewControllers = [adminTabVC, cccTabVC, specialTabVC, athleticsTabVC]
         
         // Creating the tab bar controller in code means that the window property
         // of this class is nil, (normally window is set to the starting VC from the storyboard)
