@@ -66,7 +66,7 @@ class StaffViewController: UIViewController {
         emailLabel.frame.origin = CGPoint(x: infoView.bounds.midX-emailLabel.bounds.width/2, y: infoView.bounds.height-(emailLabel.bounds.height + 10))
         
         StaffScrollView.delegate = self as? UIScrollViewDelegate
-        StaffScrollView.contentSize.height = self.viewHeight
+        StaffScrollView.contentSize.height = 180 //self.viewHeight
         StaffScrollView.contentSize.width = CGFloat(staffArray.count) * self.viewWidth
         
         for (index, SPStaffMember) in staffArray.enumerated() {
