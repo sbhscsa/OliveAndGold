@@ -110,7 +110,8 @@ class PageViewController: UIPageViewController, UIPageViewControllerDataSource, 
         let pcHeight : CGFloat = 40
         let statHeight : CGFloat = UIApplication.shared.statusBarFrame.size.height
         let nbHeight : CGFloat = self.navigationController!.navigationBar.frame.size.height
-        let startY : CGFloat = self.view.bounds.origin.y + statHeight + nbHeight + pcHeight
+        let tbHeight : CGFloat = self.tabBarController?.tabBar.bounds.size.height ?? 112
+        let startY : CGFloat = self.view.bounds.origin.y + statHeight + nbHeight + tbHeight + pcHeight
         
         pageControl = UIPageControl(frame: CGRect(x: 0, y: UIScreen.main.bounds.maxY - startY, width: UIScreen.main.bounds.width, height: pcHeight))
         self.pageControl.numberOfPages = self.pageVCs.count
