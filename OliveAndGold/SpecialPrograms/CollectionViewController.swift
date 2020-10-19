@@ -7,15 +7,43 @@
 //
 
 import UIKit
+import Firebase
+import CodableFirebase
 
+struct Pathway : Decodable {
+    var name = ""
+    var features = ""
+    var courses = ""
+    var socialMedia = ""
+    var donationLink = ""
+}
 
+struct SPStaffMember : Decodable {
+    var imageName = ""
+    var name = ""
+    var title = ""
+    var email = ""
+}
 
+struct ProgStruct : Decodable {
+    var programName = ""
+    var expandedName = ""
+    var type = "Default"
+    var logo = "SBHSLogo"
+    var bigLogo = "SBHSLogo"
+    var background = "SBHSBack"
+    var statement = ""
+    var director:SPStaffMember
+    var SPStaffMembers:[SPStaffMember]
+    var miscInfo:Pathway
+}
 
 class CollectionViewController: UICollectionViewController {
     
     private let reuseIdentifier = "Cell"
     
-    var infoForCells: [ProgStruct] = ProgData.sharedInstance.progs
+    var infoForCells = [ProgStruct]()
+    var fbRef: FIRDatabaseReference!
     
     
     let margin: CGFloat = 10
@@ -30,6 +58,23 @@ class CollectionViewController: UICollectionViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         //self.view.backgroundColor = UIColor(displayP3Red: 38, green: 57, blue: 30, alpha: 0)
+        fbRef = FIRDatabase.database().reference()
+        
+        //*** NOTE: Firebase won't store empty arrays, and CodableFirebase couldn't handle
+        // decoding the SPStaffMembers array of the ProgStruct if it was empty.
+        // So the Pathways/Academies without any staff beyond the director have an array
+        // with a single entry with all fields filled in with "unk" to get around the above problems.
+        fbRef.child("academiesPathwaysPrograms").observeSingleEvent(of: .value, with: { (snapshot) in
+            guard let value = snapshot.value else { return }
+            do {
+                let allData = try FirebaseDecoder().decode([ProgStruct].self, from: value)
+                //                print(allData)
+                self.infoForCells = allData
+                self.collectionView.reloadData()
+            } catch let error {
+                print(error)
+            }
+        })
         
         
         self.navigationItem.title = "Special Programs"
@@ -37,11 +82,7 @@ class CollectionViewController: UICollectionViewController {
         self.navigationController?.navigationBar.tintColor = UIColor.green
         
         //self.navigationController?.navigationBar.barTintColor = UIColor.green
-        
     }
-    
-    
-    
     
     // MARK: - Navigation
     
@@ -85,7 +126,7 @@ class CollectionViewController: UICollectionViewController {
         titleLabel.text =  infoForCells[indexPath.item].programName
         expTitleLabel.text = infoForCells[indexPath.item].expandedName
         logoView.image = UIImage(named: infoForCells[indexPath.item].logo)!
-        backView.image = UIImage(named: infoForCells[indexPath.item].background)!.blurred(radius: UIImage(named:infoForCells[indexPath.item].background)!.size.width/400).darkened()
+        backView.image = UIImage(named: infoForCells[indexPath.item].background)!//.blurred(radius: UIImage(named:infoForCells[indexPath.item].background)!.size.width/400).darkened()
         
         if infoForCells[indexPath.item].type != "Default"
         {
@@ -160,7 +201,7 @@ class CollectionViewController: UICollectionViewController {
      */
     
 }
-
+/*
 extension UIImage {
     func blurred(radius: CGFloat) -> UIImage {
         let ciContext = CIContext(options: nil)
@@ -195,4 +236,5 @@ extension UIImage {
         return UIGraphicsGetImageFromCurrentImageContext()
     }
 }
+ */
 

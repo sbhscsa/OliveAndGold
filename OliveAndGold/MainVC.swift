@@ -205,6 +205,8 @@ class MainVC: UITableViewController, MFMailComposeViewControllerDelegate {
             print("[DBG] Result Sent!")
         case MFMailComposeResult.failed:
             print("[DBG] Mail sent failure:", error?.localizedDescription ?? "ERROR! No description for mail state!")
+        @unknown default:
+            print("unknown mail error")
         }
         self.dismiss(animated: true, completion: nil)
     }

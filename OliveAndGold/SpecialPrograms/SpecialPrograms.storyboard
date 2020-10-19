@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.2" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -199,16 +199,16 @@
                                     <constraint firstAttribute="width" secondItem="gDm-yX-fr6" secondAttribute="height" multiplier="374:31" id="Hzf-97-fR3"/>
                                 </constraints>
                                 <segments>
-                                    <segment title="Field Trips"/>
-                                    <segment title="Pathways"/>
-                                    <segment title="Student Work"/>
+                                    <segment title="Features"/>
+                                    <segment title="Courses"/>
+                                    <segment title="Social Media"/>
                                 </segments>
                                 <color key="selectedSegmentTintColor" red="0.58392935989999994" green="0.53923851249999999" blue="0.35682451729999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <connections>
                                     <action selector="controlTab:" destination="4WC-DE-bsJ" eventType="valueChanged" id="lr6-tj-pIG"/>
                                 </connections>
                             </segmentedControl>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="24" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qxC-p4-OYl">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" lineBreakMode="tailTruncation" numberOfLines="24" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qxC-p4-OYl">
                                 <rect key="frame" x="20" y="74" width="335" height="210.5"/>
                                 <constraints>
                                     <constraint firstAttribute="height" relation="lessThanOrEqual" constant="640" id="wbR-KM-g7F"/>
@@ -218,8 +218,8 @@
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SV3-2h-c4u">
-                                <rect key="frame" x="87.5" y="577" width="200" height="30"/>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SV3-2h-c4u">
+                                <rect key="frame" x="74" y="573" width="227" height="34"/>
                                 <color key="backgroundColor" red="0.58392935989999994" green="0.53923851249999999" blue="0.35682451729999998" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="SV3-2h-c4u" secondAttribute="height" multiplier="187:28" id="XGW-pP-TWx"/>
@@ -231,13 +231,40 @@
                                     <action selector="link:" destination="4WC-DE-bsJ" eventType="touchUpInside" id="iU4-5y-Ipp"/>
                                 </connections>
                             </button>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="NjB-gY-Rxs">
+                                <rect key="frame" x="153.5" y="173" width="68" height="233.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Pathway" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fsz-iR-3lz">
+                                        <rect key="frame" x="0.0" y="0.0" width="68" height="21.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jRq-4V-6FN">
+                                        <rect key="frame" x="1" y="61.5" width="66" height="66"/>
+                                        <state key="normal" image="instaLogo"/>
+                                        <connections>
+                                            <action selector="instaTapped:" destination="4WC-DE-bsJ" eventType="touchUpInside" id="CRc-eA-hzj"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="14U-5B-uAw">
+                                        <rect key="frame" x="1" y="167.5" width="66" height="66"/>
+                                        <state key="normal" image="facebook"/>
+                                        <connections>
+                                            <action selector="fbTapped:" destination="4WC-DE-bsJ" eventType="touchUpInside" id="2Cd-0b-aMb"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
                         </subviews>
                         <color key="backgroundColor" red="0.17247974869999999" green="0.2244379222" blue="0.1372401416" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         <constraints>
+                            <constraint firstItem="NjB-gY-Rxs" firstAttribute="centerX" secondItem="Qd2-Kg-7DO" secondAttribute="centerX" id="1mY-wt-C87"/>
                             <constraint firstItem="qxC-p4-OYl" firstAttribute="trailing" secondItem="gDm-yX-fr6" secondAttribute="trailing" id="4bO-K0-XJy"/>
                             <constraint firstItem="SV3-2h-c4u" firstAttribute="top" relation="greaterThanOrEqual" secondItem="qxC-p4-OYl" secondAttribute="bottom" constant="10" id="HZ5-Oo-MI2"/>
                             <constraint firstItem="gDm-yX-fr6" firstAttribute="top" secondItem="scB-QX-zIc" secondAttribute="top" constant="31" id="PZ8-PC-sff"/>
                             <constraint firstItem="SV3-2h-c4u" firstAttribute="centerX" secondItem="scB-QX-zIc" secondAttribute="centerX" id="QAg-Z4-Z56"/>
+                            <constraint firstItem="NjB-gY-Rxs" firstAttribute="centerY" secondItem="Qd2-Kg-7DO" secondAttribute="centerY" constant="-44" id="QOE-Vq-QnL"/>
                             <constraint firstItem="SV3-2h-c4u" firstAttribute="centerX" secondItem="scB-QX-zIc" secondAttribute="centerX" id="WTv-FJ-ZeS"/>
                             <constraint firstItem="scB-QX-zIc" firstAttribute="trailing" secondItem="gDm-yX-fr6" secondAttribute="trailing" constant="20" id="cLd-YG-RDC"/>
                             <constraint firstItem="gDm-yX-fr6" firstAttribute="leading" secondItem="scB-QX-zIc" secondAttribute="leading" constant="20" id="ivC-ac-v4b"/>
@@ -249,7 +276,10 @@
                     </view>
                     <connections>
                         <outlet property="MainContent" destination="qxC-p4-OYl" id="E9b-C2-l9Z"/>
+                        <outlet property="donateButton" destination="SV3-2h-c4u" id="qo2-8c-c26"/>
                         <outlet property="segmentedControl" destination="gDm-yX-fr6" id="kqE-rA-vH6"/>
+                        <outlet property="stackNameLabel" destination="fsz-iR-3lz" id="FDU-8h-gPr"/>
+                        <outlet property="stackView" destination="NjB-gY-Rxs" id="beP-Jv-0Bs"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="u05-we-iG0" sceneMemberID="firstResponder"/>
@@ -277,7 +307,7 @@
                                         <color key="textColor" red="0.71214672690000003" green="0.61149801270000004" blue="0.13678302919999999" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="johnston" translatesAutoresizingMaskIntoConstraints="NO" id="ogb-wH-bcB">
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="unknown" translatesAutoresizingMaskIntoConstraints="NO" id="ogb-wH-bcB">
                                         <rect key="frame" x="89.5" y="40" width="164" height="150"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="150" id="MBG-w4-Y2e"/>
@@ -326,6 +356,7 @@
                         <outlet property="StaffScrollView" destination="Iph-Ec-kWS" id="goa-z7-Pme"/>
                         <outlet property="imageView" destination="ogb-wH-bcB" id="amd-RS-YMv"/>
                         <outlet property="infoView" destination="p2w-Q8-Sqk" id="Sgm-fI-eUg"/>
+                        <outlet property="staffMembersLabel" destination="sT0-Md-9ad" id="MOW-vf-VxT"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ZbZ-cq-R2M" sceneMemberID="firstResponder"/>
@@ -335,6 +366,8 @@
     </scenes>
     <resources>
         <image name="CSA" width="16" height="16"/>
-        <image name="johnston" width="428" height="414"/>
+        <image name="facebook" width="66" height="66"/>
+        <image name="instaLogo" width="66" height="66"/>
+        <image name="unknown" width="270" height="338"/>
     </resources>
 </document>

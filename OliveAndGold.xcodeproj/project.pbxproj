@@ -13,11 +13,6 @@
 		75282E781CCFCBB0006FCFA1 /* QuestionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75282E771CCFCBB0006FCFA1 /* QuestionVC.swift */; };
 		753CA9991CC6B65900816DFA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 75C8F1DF1CBD75C100125AD4 /* Main.storyboard */; };
 		7568BACC1CD279B700D22B89 /* WebviewVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7568BACB1CD279B700D22B89 /* WebviewVC.swift */; };
-		75A49F8824F1C002003C6149 /* ProgData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A49F8324F1C001003C6149 /* ProgData.swift */; };
-		75A49F8924F1C002003C6149 /* SocialMedia.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A49F8424F1C001003C6149 /* SocialMedia.swift */; };
-		75A49F8A24F1C002003C6149 /* ProgStruct.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A49F8524F1C001003C6149 /* ProgStruct.swift */; };
-		75A49F8B24F1C002003C6149 /* Pathways.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A49F8624F1C001003C6149 /* Pathways.swift */; };
-		75A49F8C24F1C002003C6149 /* SPStaffMember.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A49F8724F1C001003C6149 /* SPStaffMember.swift */; };
 		75A49F9224F1C0EF003C6149 /* MiscViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A49F8D24F1C0EF003C6149 /* MiscViewController.swift */; };
 		75A49F9324F1C0EF003C6149 /* PageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A49F8E24F1C0EF003C6149 /* PageViewController.swift */; };
 		75A49F9424F1C0EF003C6149 /* CollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 75A49F8F24F1C0EF003C6149 /* CollectionViewController.swift */; };
@@ -60,11 +55,6 @@
 		75282E771CCFCBB0006FCFA1 /* QuestionVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuestionVC.swift; sourceTree = "<group>"; };
 		753CA9981CC6B54F00816DFA /* en */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = en; path = en.lproj/Main.storyboard; sourceTree = "<group>"; };
 		7568BACB1CD279B700D22B89 /* WebviewVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebviewVC.swift; sourceTree = "<group>"; };
-		75A49F8324F1C001003C6149 /* ProgData.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProgData.swift; path = SpecialPrograms/ProgData.swift; sourceTree = "<group>"; };
-		75A49F8424F1C001003C6149 /* SocialMedia.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SocialMedia.swift; path = SpecialPrograms/SocialMedia.swift; sourceTree = "<group>"; };
-		75A49F8524F1C001003C6149 /* ProgStruct.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ProgStruct.swift; path = SpecialPrograms/ProgStruct.swift; sourceTree = "<group>"; };
-		75A49F8624F1C001003C6149 /* Pathways.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Pathways.swift; path = SpecialPrograms/Pathways.swift; sourceTree = "<group>"; };
-		75A49F8724F1C001003C6149 /* SPStaffMember.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SPStaffMember.swift; path = SpecialPrograms/SPStaffMember.swift; sourceTree = "<group>"; };
 		75A49F8D24F1C0EF003C6149 /* MiscViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MiscViewController.swift; path = SpecialPrograms/MiscViewController.swift; sourceTree = "<group>"; };
 		75A49F8E24F1C0EF003C6149 /* PageViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = PageViewController.swift; path = SpecialPrograms/PageViewController.swift; sourceTree = "<group>"; };
 		75A49F8F24F1C0EF003C6149 /* CollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CollectionViewController.swift; path = SpecialPrograms/CollectionViewController.swift; sourceTree = "<group>"; };
@@ -121,18 +111,6 @@
 				C2E59E2DE13FFBEB7FBE3210 /* Pods_OliveAndGoldUITests.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		75A49F8124F1BEF3003C6149 /* Data */ = {
-			isa = PBXGroup;
-			children = (
-				75A49F8624F1C001003C6149 /* Pathways.swift */,
-				75A49F8324F1C001003C6149 /* ProgData.swift */,
-				75A49F8524F1C001003C6149 /* ProgStruct.swift */,
-				75A49F8424F1C001003C6149 /* SocialMedia.swift */,
-				75A49F8724F1C001003C6149 /* SPStaffMember.swift */,
-			);
-			name = Data;
 			sourceTree = "<group>";
 		};
 		75A49F8224F1BF07003C6149 /* ViewControllers */ = {
@@ -286,7 +264,6 @@
 			children = (
 				75A49F9724F1C104003C6149 /* SpecialPrograms.storyboard */,
 				75A49F8224F1BF07003C6149 /* ViewControllers */,
-				75A49F8124F1BEF3003C6149 /* Data */,
 			);
 			name = SpecialPrograms;
 			sourceTree = "<group>";
@@ -343,7 +320,6 @@
 				75C8F1D51CBD75C100125AD4 /* Frameworks */,
 				75C8F1D61CBD75C100125AD4 /* Resources */,
 				23FFE6732ADD9D01210A1BFE /* [CP] Embed Pods Frameworks */,
-				6D9D55D1482DE3D52F25411E /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -416,13 +392,20 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-OliveAndGold/Pods-OliveAndGold-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/CodableFirebase/CodableFirebase.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CodableFirebase.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OliveAndGold/Pods-OliveAndGold-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-OliveAndGold/Pods-OliveAndGold-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		47964DAF03742DBE0831BAF5 /* [CP] Check Pods Manifest.lock */ = {
@@ -431,28 +414,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-OliveAndGold-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
-			showEnvVarsInLog = 0;
-		};
-		6D9D55D1482DE3D52F25411E /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-OliveAndGold/Pods-OliveAndGold-resources.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -475,19 +446,14 @@
 				ED39F4491E2ED4880009B83E /* SettingsVC.swift in Sources */,
 				75A49F9524F1C0EF003C6149 /* StaffViewController.swift in Sources */,
 				D63782CB1E025B7700E2DA3E /* StaffDisplayVC.swift in Sources */,
-				75A49F8824F1C002003C6149 /* ProgData.swift in Sources */,
-				75A49F8924F1C002003C6149 /* SocialMedia.swift in Sources */,
 				75C8F1DE1CBD75C100125AD4 /* MainVC.swift in Sources */,
 				D671CBC21E01BD6B008F04E1 /* Questions.swift in Sources */,
-				75A49F8B24F1C002003C6149 /* Pathways.swift in Sources */,
 				75C8F1DC1CBD75C100125AD4 /* AppDelegate.swift in Sources */,
 				38200C3F1EC0BD8F00D55EDE /* AdminTableViewCell.swift in Sources */,
 				D671CBB81E01B9BC008F04E1 /* Staff.swift in Sources */,
 				75A49F9624F1C0EF003C6149 /* LogoViewController.swift in Sources */,
 				75A49F9224F1C0EF003C6149 /* MiscViewController.swift in Sources */,
-				75A49F8A24F1C002003C6149 /* ProgStruct.swift in Sources */,
 				ED5A4C941E849E07005988A9 /* AthleticsViewController.swift in Sources */,
-				75A49F8C24F1C002003C6149 /* SPStaffMember.swift in Sources */,
 				75A49F9324F1C0EF003C6149 /* PageViewController.swift in Sources */,
 				ED46452E1E53E3B10019092A /* AdminVC.swift in Sources */,
 				D66D7FBB1E048ED200BB6ABC /* MainTableViewCell.swift in Sources */,

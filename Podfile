@@ -9,15 +9,6 @@ target 'OliveAndGold' do
   pod 'Firebase/Core'
   pod 'Firebase/Database'
   pod 'Firebase/Storage'
-
-  target 'OliveAndGoldTests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
-
-  target 'OliveAndGoldUITests' do
-    inherit! :search_paths
-    # Pods for testing
-  end
+  pod 'CodableFirebase'
 
 end

@@ -7,6 +7,36 @@
 //
 
 import Foundation
+import Firebase
+import CodableFirebase
+
+struct Pathway : Decodable {
+    var name = ""
+    var features = ""
+    var courses = ""
+    var socialMedia = ""
+    var donationLink = ""
+}
+
+struct SPStaffMember : Decodable {
+    var imageName = ""
+    var name = ""
+    var title = ""
+    var email = ""
+}
+
+struct ProgStruct : Decodable {
+    var programName = ""
+    var expandedName = ""
+    var type = "Default"
+    var logo = "SBHSLogo"
+    var bigLogo = "SBHSLogo"
+    var background = "SBHSBack"
+    var statement = ""
+    var director:SPStaffMember
+    var SPStaffMembers:[SPStaffMember]
+    var miscInfo:Pathway
+}
 
 // This is a Singleton. Much like the Math class in Java, it provides a single
 // shared object for use, rather than multiple individual objects (instantiations) of the class.
@@ -20,35 +50,235 @@ import Foundation
 class ProgData {
     static let sharedInstance = ProgData() // calls the constructor (init)
     var progs = [ProgStruct]()
-    
+//    let file = "OGSPjson.json"
+    var fbRef: FIRDatabaseReference!
+        
     init() {
-        // NEED DANCE, CONSTRUCTION, CHOIR, BAND!!!
+         // get links
+        fbRef = FIRDatabase.database().reference()
         
-        //CSA
-        self.progs.append(ProgStruct(programName: "CS Academy", expandedName: "Computer Science Academy", type: "Acad", logo: "CSALogo",  bigLogo: "CSABigLogo", background: "CSABack", statement: "The CS Academy’s mission is to expose as many SBHS students as possible to computer science and to demonstrate its relevance to their academic and career interests. Through innovative courses, opportunities outside the classroom, and industry partnerships, academy students will expand their knowledge and experience in computer science. This Career Technical Education (CTE) program will prepare students to pursue a career in this dynamic field.", director: SPStaffMember(imageName: "adams", name: "Sky Adams", title: "Director", email: "skyadams@sbunified.org"), SPStaffMembers: [SPStaffMember(imageName: "stewart", name: "Kyle Stewart", title: "Instructor", email: "kstewart@sbunified.org"), SPStaffMember(imageName: "johnston", name: "Richard Johnston", title: "Instructor", email: "rjohnston@sbunified.org"), SPStaffMember(imageName: "muhl", name: "Paul Muhl", title: "Instructor", email: "pmuhl@sbunified.org")], miscInfo: Pathway(name: "CSA", fieldTrips: "During the academic year, the CS Academy offers field trips to visit local companies and interact with programmers, software designers, engineers and other industry professionals. These field trips are offered for individual computer science classes and for the CS Academy as a whole. In past years, students have visited AppFolio, QAD, Sonos, Allosphere/MAT lab, UCSB, Procore and more!", pathways: "The Art & Design Pathway consists of two CS courses (Computational Art and Designing Software for the Web) and at least one additional elective art class offered at SBHS (e.g., Photography, Free Hand Drawing, Sculpture, Theater, etc.). To complete the pathway students also need to attend at least 4 CS Academy lunch talks in two years. The Web Design Pathway consists of two CS courses (Exploring Computer Science and Designing Software for the Web). To complete the pathway students also need to attend at least 4 CS Academy lunch talks in two years. The Elementary Developer Pathway consists of two CS courses (Exploring Computer Science and AP Computer Science). Note that students who elect this pathway should be enrolled in compaction math. To complete the pathway students also need to attend at least 4 CS Academy lunch talks in two years. The Java Developer Pathway consists of two CS courses (Computational Art and AP Computer Science). The emphasis of this pathway is on object-oriented design. Note that students who elect this pathway should be enrolled in compaction math. To complete the pathway students also need to attend at least 4 CS Academy lunch talks in two years.", studentWork: "The Olive and Gold app is an excellent example of the type of project that CSA students at SBHS do. You can download the project free on the app store", donationLink: "https://sbhscs.org/support/#waystogive")))
+        fbRef.child("academiesPathwaysPrograms").observeSingleEvent(of: .value, with: { (snapshot) in
+            guard let value = snapshot.value else { return }
+            do {
+                let allData = try FirebaseDecoder().decode([ProgStruct].self, from: value)
+//                print(allData)
+                self.progs = allData
+            } catch let error {
+                print(error)
+            }
+            
+//            let decoder = JSONDecoder()
+//
+//            guard let loaded = try? decoder.decode([ProgStruct].self, from: url) else {
+//                fatalError("Failed to decode special programs data from firebase.")
+//            }
+//
+//            self.progs = loaded
+        })
+//        guard let url = Bundle.main.url(forResource: file, withExtension: nil) else {
+//            fatalError("Failed to locate \(file) in bundle.")
+//        }
+
+        /*
+        // CSA
+        self.progs.append(
+            ProgStruct(programName: "CS Academy",
+                       expandedName: "Computer Science Academy",
+                       type: "Acad",
+                       logo: "CSALogo",
+                       bigLogo: "CSABigLogo",
+                       background: "CSABack",
+                       statement: "\"Collaborate, Create, Change the World!\"",
+                       director: SPStaffMember(imageName: "adams", name: "Sky Adams", title: "Director", email: "skyadams@sbunified.org"),
+                       SPStaffMembers: [
+                        SPStaffMember(imageName: "stewart", name: "Kyle Stewart", title: "Instructor", email: "kstewart@sbunified.org"),
+                        SPStaffMember(imageName: "johnston", name: "Richard Johnston", title: "Instructor", email: "rjohnston@sbunified.org"),
+                        SPStaffMember(imageName: "muhl", name: "Paul Muhl", title: "Instructor", email: "pmuhl@sbunified.org"),
+                        SPStaffMember(imageName: "velasco", name: "Joe Velasco", title: "Instructor", email: "jvelasco@sbunified.org"),
+                        SPStaffMember(imageName: "moschitto", name: "Daisy Moschitto", title: "Administrative Support", email: "dmoschitto@sbunified.org")],
+                       miscInfo: Pathway(name: "CSA",
+                                         features: "\u{29BF} 4 pathway & 3 certificate options\n\n\u{29BF} Local tech field trips\n\n\u{29BF} Field trips to Silicon Valley & Silicon Beach\n\n\u{29BF} Clubs: SB Makers, Girls Who Code, Game Development\n\n\u{29BF} Job shadows, Internships\n\n\u{29BF} Hackathon\n\n\u{29BF} Summer camp teacher positions\n\n\u{29BF} Industry lunch speakers\n\n\u{29BF} Community-building events (e.g. Taco Lunch, Year End Banquet)",
+                                         courses: "\u{29BF} Exploring Computer Science\n\n\u{29BF} Computational Art\n\n\u{29BF} AP Computer Science\n\n\u{29BF} Designing Software for the Web\n\n\u{29BF} Mobile Programming Honors",
+                                         socialMedia: "insta:csatsbhs,fb:sbhscomputerscienceacademy",
+                                         donationLink: "https://sbhscs.org/support/#waystogive")))
         
-        //Theatre
-        self.progs.append(ProgStruct(programName: "Theatre", expandedName: "SBHS Dramatic Theatre Arts", type: "Act", logo: "TheatreLogoAlt", bigLogo: "TheatreBigLogo", background: "TheatreBack", statement: "\"Leap, and a net will appear.\"", miscInfo: Pathway(name: "Theatre", fieldTrips: "Data Missing", pathways: "Data Missing", studentWork: "Theatre at Santa Barbara High School has been performed continuously for 114 years, 96 of those years in the same space.  We are a public high school in Santa Barbara, California, and we are dedicated to giving as professional an experience to student actors and technicians as is possible--to that end, we employ professional designers, choreographers, musical directors and guest artists.  We have become a musical theatre school, producing solely musicals in our season. SBHS Theatre is a proud part of the SBHS Performing Arts Department, which currently offers four theatre classes with Department Chair, Otto Layman, four choral music classes (including award-winning A Capella and Madrigal Singers) under the direction of Mary LaFace, four instrumental music classes (including a nationally-recognized Jazz Band under the direction of Dylan Aguilera), and five dance classes (Beth Goldman).  We offer an array of entertainment all year round, in a renovated, 800 seat house featuring state of the art lighting and sound. ", donationLink: "https://webstores.activenetwork.com/school-software/sbhs_dons_asb_online/index.php?l=product_detail&p=507#.W6vToqeZNQI")))
+        // Theatre
+        self.progs.append(
+            ProgStruct(programName: "Theatre",
+                       expandedName: "SBHS Dramatic Theatre Arts",
+                       type: "Act",
+                       logo: "TheatreLogoAlt",
+                       bigLogo: "TheatreBigLogo",
+                       background: "TheatreBack",
+                       statement: "\"Leap, and a net will appear.\"",
+                       director: SPStaffMember(imageName: "baldridge", name: "Justin Baldridge", title: "Director", email: "jbaldridge@sbunified.org"),
+                       SPStaffMembers: [],
+                       miscInfo: Pathway(name: "Theatre",
+                                         features: "\u{29BF} Three amazing productions per year!",
+                                         courses: "\u{29BF} Theater Arts 1\n\n\u{29BF} Theater Arts Advanced\n\n\u{29BF} Stagecraft\n\n\u{29BF} Play Production",
+                                         socialMedia: "insta:sbhstheater,fb:SBHSDonsTheatre",
+                                         donationLink: "http://www.sbhstheatre.com/new-page/")))
         
-        //Vada
-        self.progs.append(ProgStruct(programName: "VADA", expandedName: "Visual Art and Design Academy", type: "Acad", logo: "VADALogo", bigLogo: "VADALogo", background: "VADABack", statement: "The Visual Arts and Design Academy (VADA) is a unique \"school-within-a-school\" that integreates rigorous academic coursework with project-based, career-focused art and design instruction, in a supportive and creative environment.", miscInfo: Pathway(name: "VADA", fieldTrips: "Data Missing", pathways: "VADA Classes by grade level include: (“CP” signifies “College Prep” and “AP” signifies “Advanced Placement”)--9th: VADA Freehand Drawing--College Prep Pathway: English 9 CP--AP Pathway: English 9 Honors--10th: VADA Freehand Drawing Advanced/Intro to Graphic Design (SBCC Dual Enrollment)--College Prep Pathway: English 10 CP + World History CP + Biology CP--AP Pathway: English 10 Honors + AP World History + Chem. Honors--11th: VADA Advanced Painting/Digital Imaging I (SBCC Dual Enrollment)--College Prep Pathway: English 11 + US History + Marine Biology--AP Pathway: AP English Language + AP US History + AP Environmental Science--12th: VADA AP Studio Art or Honors Studio Art--American Government/Economics CP and/or AP English Literature", studentWork: "Key components of the Academy model are:CURRICULUM focused on a career theme and coordinated with related academic classes.VOLUNTARY student selection process that identifies interested ninth graders.TEAM OF TEACHERS who work together to plan and implement the program.MOTIVATIONAL ACTIVITIES with private sector involvement to encourage academic and occupational preparation, such as: integrated and project-based curriculum, mentor program, classroom speakers, field trips, and exploration of post-secondary and career options.WORKPLACE LEARNING OPPORTUNITIES such as job shadowing, student internships, and work experience.", donationLink: "https://www.vadasbhs.org/")))
+        // Vada
+        self.progs.append(
+            ProgStruct(programName: "VADA",
+                       expandedName: "Visual Art and Design Academy",
+                       type: "Acad",
+                       logo: "VADALogo",
+                       bigLogo: "VADALogo",
+                       background: "VADABack",
+                       statement: "\"Art Saves Lives\"",
+                       director: SPStaffMember(imageName: "barnett", name: "Daniel Barnett", title: "Director", email: "danielbarnett@sbunified.org"),
+                       SPStaffMembers: [SPStaffMember(imageName: "nbarr", name: "Nicole Barr", title: "Instructor", email: "nbarr@sbunified.org"),
+                                        SPStaffMember(imageName: "teris", name: "Brandon Teris", title: "Instructor", email: "bteris@sbunified.org")],
+                       miscInfo: Pathway(name: "VADA",
+                                         features: "\u{29BF} Field Trips\n\n\u{29BF} Monthly Student Lunches\n\n\u{29BF} Guest Speakers\n\n\u{29BF} First Thursday Events\n\n\u{29BF} Parent Happy Hours\n\n\u{29BF} New York City  Trip\n\n\u{29BF} Spring Show\n\n\u{29BF} VADA Prom\n\n\u{29BF} The VADA Draw\n\n\u{29BF} VADA Graduation",
+                                         courses: "\u{29BF} Freehand Drawing\n\n\u{29BF} Graphic Design Basics\n\n\u{29BF} Advanced Freehand Drawing\n\n\u{29BF} Digital Imaging 1\n\n\u{29BF} Introduction to Photography\n\n\u{29BF} Advanced Painting\n\n\u{29BF} AP Studio Art",
+                                         socialMedia: "insta:vadasbhs,fb:vadasbhs",
+                                         donationLink: "https://www.vadasbhs.org/annual-campaign")))
         
-        //MAD
-        self.progs.append(ProgStruct(programName: "MAD", expandedName: "Multimedia Art and Design Academy", type: "Acad", logo: "MADLogo", bigLogo: "MADLogo", background: "MADBack", statement: "The MAD Academy is a four year \"school within a school\" at Santa Barbara High School. Stuents take an integrated curriculum comprissed of pre-AP, Honors & AP level academic requirements & college classes in Graphic Design, Film, Photography, Socia Media & Web Design.", miscInfo: Pathway(
-        name: "MAD"
-        , fieldTrips: "MEXICO COMMUNITY SERVICE TRIP:The MAD Community Service Trip has been described by students as “life changing” and that it “opened their eyes” to how some people in this world live. The families that receive homes have their lives transformed through being provided the basic need of shelter. Students will receive community service hours for attending but they also gain so much more. Students come home with a better appreciation for the life they have in Santa Barbara."
-        , pathways: "As an academy, MAD offers an integrated curriculum. As such, MAD students will take the majority of the core academic classes with their fellow MAD students, providing a level of comfort and continuity. Furthermore, to keep the level of student interest high, many core academic assignments will involve/require media based deliverables. MAD students are very well prepared to succeed in college. With a minimum of 24 units of college credit in addition to a varying number of APs, MAD students often enter their college experience with more than a full year of college-level credits. This accelerated curriculum allows many students to graduate in three or fewer years – which represents potential savings of tens of thousands of dollars depending on which schools students attend."
-        , studentWork: "Student Work Page http://madacad.com/work/"
-        , donationLink: "http://madacad.com/donate/")))
+        // MAD
+        self.progs.append(
+            ProgStruct(programName: "MAD",
+                       expandedName: "Multimedia Art and Design Academy",
+                       type: "Acad",
+                       logo: "MADLogo",
+                       bigLogo: "MADLogo",
+                       background: "MADBack",
+                       statement: "\"Digital Storytelling, Beyond Traditional Student Work\"",
+                       director: SPStaffMember(imageName: "henning", name: "Henning/Peinado", title: "Co-Director", email: "ajhenning@sbunified.org"),
+                       SPStaffMembers: [SPStaffMember(imageName: "peinado", name: "Shea Peinado", title: "Co-Director", email: "speinado@sbunified.org")],
+                       miscInfo: Pathway(name: "MAD",
+                                         features: "\u{29BF} Mexico community service trip",
+                                         courses: "\u{29BF} Survey of Multimedia Applications\n\n\u{29BF} Digital Imaging 1\n\n\u{29BF} Digital Drawing\n\n\u{29BF} Social Networking/Social Media\n\n\u{29BF} Introduction to Photography\n\n\u{29BF} Non-linear Editing\n\n\u{29BF} Film and Video Production 1\n\n\u{29BF} Senior course determined by students",
+                                         socialMedia: "insta:sbmadacad,fb:sbmadacad",
+                                         donationLink: "http://madacad.com/donate/")))
         
-        //Sport Med
-        self.progs.append(ProgStruct(programName: "Sports Med", expandedName: "Sports Medicine Pathway", type: "Path", logo: "SportsMedLogo", bigLogo: "SportsMedLogo", background: "SportsMedBack", statement:"Our pathway intent is to build upon student interests by expanding their knowledge and their skill set to excel in the post high school course work necessary for their career goals.", miscInfo: Pathway(name: "SportsMed", fieldTrips: "Data Missing", pathways: "Medical Chemistry:A great introduction to basic chemical properties and processes as related to the human body, health, and medical careers.  This course is perfect for students interested in a health career but not yet ready for Honors Chemistry.  Medical Chemistry will serve as a foundation for future or concurrent biology classes as well as A.P. Biology.Honors Chemistry: If you are interested in pursuing a pre-med program in college and you are strong in math you should enroll in Honors Chemistry.  You must have satisfactorily completed Honors Chemistry to enroll in A.P Chemistry.  A strong foundation in Chemistry will make your first years in a pre-med program more successful.Medical Biology:Starts with an overview of the human body and then dives into five systems in detail while incorporating basic biological principles.  If you are interested in a health career, or think that learning biology in the context of the human body sounds interesting, this is the class for you. Kinesiology: Get ready to memorize!  In this class you will explore the human body and its systems as they relate to human movement and performance.  If you are interested in pursuing a career as a health care professional or learning about human anatomy and physiology Kinesiology is the class for you. Needed to enroll in Sports Medicine.Sports Medicine: Provides an overview of: health care occupations, human anatomy, medical terminology, nutrition, physical fitness, soft tissue and bone response to trauma, emergency procedures, therapeutic modalities and exercises, and evaluation and classification of sports related injuries.  You will have the opportunity to apply what you learn in class as you rotate through on-the-job training experiences with local athletic trainers, physical therapists, chiropractors, and physical education instructors.A.P. Biology & A.P. Chemistry:If your career goal involves continuing education after high school, plan on completing at least one A.P. class to give yourself the best possible start in college.", studentWork: "Data Missing", donationLink: "https://ws0.asbworks.com/(S(xrgovbg2c1wfvma0wqrbic02))/apps/webstore/pages/WebStore.aspx?org=14935")))
+        // Sport Med
+        self.progs.append(
+            ProgStruct(programName: "Sports Med",
+                       expandedName: "Sports Medicine Pathway",
+                       type: "Path",
+                       logo: "SportsMedLogo",
+                       bigLogo: "SportsMedLogo",
+                       background: "SportsMedBack",
+                       statement:"\"Health Care For Life & Sports\"",
+                       director: SPStaffMember(imageName: "mrivera", name: "Maria Rivera", title: "Director", email: "merivera@sbunified.org"),
+                       SPStaffMembers: [SPStaffMember(imageName: "unknown", name: "Lauren Galvin", title: "Instructor", email: "lgalvin@sbunified.org"),
+                                        SPStaffMember(imageName: "cornelius", name: "Ashley Cornelius", title: "Instructor", email: "acornelius@sbunified.org")],
+                       miscInfo: Pathway(name: "SportsMed",
+                                         features: "\u{29BF} Practical Experience at Athletic Events\n\n\u{29BF} CPR/AED/First Aid Certification\n\n\u{29BF} Blood Borne Pathogens Certification\n\n\u{29BF} HIPAA Training Certificate\n\n\u{29BF} CDC Heads Up to Youth Sports Online Concussion Training",
+                                         courses: "\u{29BF} Medical Chemistry\n\n\u{29BF} Medical Biology\n\n\u{29BF} Kinesiology\n\n\u{29BF} Sports Medicine\n\n\u{29BF} Sports Med Community (Internship)",
+                                         socialMedia: "insta:sbhs_sportsmed,fb:sbhsdons",
+                                         donationLink: "https://www.foundationforsbhs.org/")))
+        
+        // Construction Tech
+        self.progs.append(
+        ProgStruct(programName: "Construction",
+            expandedName: "Construction Technology",
+            type: "Path",
+            logo: "SBHSLogo",
+            bigLogo: "SBHSLogo",
+            background: "constructionBack",
+            statement: "\"Building the Future\"",
+            director: SPStaffMember(imageName: "chadwick", name: "Caleb Chadwick", title: "Director", email: "cchadwick@sbunified.org"),
+            SPStaffMembers: [],
+            miscInfo: Pathway(name: "Construction",
+                              features: "\u{29BF} ",
+                              courses: "\u{29BF} Construction Technology 1\n\n\u{29BF} Construction Technology 2",
+                              socialMedia: "insta:sbhswoodshop,fb:sbhsdons",
+                              donationLink: "https://www.foundationforsbhs.org/")))
+      
+        // Instrumental Music
+        self.progs.append(
+            ProgStruct(programName: "Music",
+                expandedName: "Instrumental Music",
+                type: "Act",
+                logo: "SBHSLogo",
+                bigLogo: "SBHSLogo",
+                background: "bandBack",
+                statement: "\"100+ Years of Music and Tradition\"",
+                director: SPStaffMember(imageName: "aguilera", name: "Dylan Aguilera", title: "Director", email: "daguilera@sbunified.org"),
+                SPStaffMembers: [],
+                miscInfo: Pathway(name: "Instrumental Music",
+                                  features: "\u{29BF} Band\n\n\u{29BF} Orchestra\n\n\u{29BF} Drumline",
+                                  courses: "\u{29BF} Jazz Ensemble Beginning\n\n\u{29BF} Jazz Ensemble Advanced\n\n\u{29BF} Orchestra\n\n\u{29BF} Drumline\n\n\u{29BF} Concert Band\n\n\u{29BF} Marching Band",
+                                  socialMedia: "insta:sbhs_instrumentalmusic,fb:SBHS-Instrumental-Music-233479996808545",
+                                  donationLink: "https://www.foundationforsbhs.org/")))
+        
+        // Choir
+        self.progs.append(
+        ProgStruct(programName: "Choir",
+            expandedName: "SBHS Choir",
+            type: "Act",
+            logo: "choirLogo",
+            bigLogo: "choirLogo",
+            background: "choirBack",
+            statement: "\"Sing Your Heart Out!\"",
+            director: SPStaffMember(imageName: "laface", name: "Mary LaFace", title: "Director", email: "mlaface@sbunified.org"),
+            SPStaffMembers: [],
+            miscInfo: Pathway(name: "Choir",
+                              features: "\u{29BF} ",
+                              courses: "\u{29BF} Vocal Ensemble\n\n\u{29BF} A Cappella\n\n\u{29BF} Madrigals",
+                              socialMedia: "insta:sbhschoir,fb:Santa-Barbara-High-School-Choral-Department-590063691128458",
+                              donationLink: "https://www.foundationforsbhs.org/")))
         
         
-        //Blank
-        self.progs.append(ProgStruct())
+        // Dance
+        self.progs.append(
+        ProgStruct(programName: "Dance",
+            expandedName: "SBHS Dance",
+            type: "Act",
+            logo: "SBHSLogo",
+            bigLogo: "SBHSLogo",
+            background: "danceBack",
+            statement: "\"Create. Dance. Live.\"",
+            director: SPStaffMember(imageName: "goldman", name: "Beth Goldman", title: "Director", email: "bgoldman@sbunified.org"),
+            SPStaffMembers: [],
+            miscInfo: Pathway(name: "Dance",
+                              features: "\u{29BF} ",
+                              courses: "\u{29BF} Dance 1\n\n\u{29BF} Dance 2\n\n\u{29BF} Dance Production\n\n\u{29BF} Dance Team",
+                              socialMedia: "insta:dancesbhs,fb:sbhsdons",
+                              donationLink: "https://www.foundationforsbhs.org/")))
+         
+         // Culinary
+         self.progs.append(
+         ProgStruct(programName: "Culinary",
+             expandedName: "Culinary Arts",
+             type: "Path",
+             logo: "SBHSLogo",
+             bigLogo: "SBHSLogo",
+             background: "culinaryBack",
+             statement: "\"One of the very nicest things about life is the way we must regularly stop whatever it is we are doing and devote our attention to eating.\"\n\n– Luciano Pavarotti",
+             director: SPStaffMember(imageName: "agott", name: "Ann Gott", title: "Director", email: "agott@sbunified.org"),
+             SPStaffMembers: [],
+             miscInfo: Pathway(name: "Culinary Arts",
+                               features: "\u{29BF} ",
+                               courses: "\u{29BF} Culinary Arts 1\n\n\u{29BF} Culinary Arts 2",
+                               socialMedia: "insta:sbhsculinaryarts,fb:sbhsdons",
+                               donationLink: "https://www.foundationforsbhs.org/")))
         
-        
+        // AVID
+        self.progs.append(
+        ProgStruct(programName: "AVID",
+            expandedName: "SBHS AVID",
+            type: "Act",
+            logo: "avidLogo",
+            bigLogo: "avidLogo",
+            background: "avidBack",
+            statement: "\"Changing the future...one student at a time.\"",
+            director: SPStaffMember(imageName: "velasco", name: "Joseph Velasco", title: "Director", email: "jvelasco@sbunified.org"),
+            SPStaffMembers: [
+             SPStaffMember(imageName: "cortes", name: "Edith Cortes", title: "AVID/PEAC Counselor", email: "ecortes@sbunified.org"),
+             SPStaffMember(imageName: "calles", name: "Veronica Calles", title: "Instructor", email: "vcalles@sbunified.org"),
+             SPStaffMember(imageName: "daniel", name: "Helen Daniel", title: "Instructor", email: "hdaniel@sbunified.org"),
+             SPStaffMember(imageName: "quinn", name: "Genevieve Quinn", title: "Instructor", email: "gquinn@sbunified.org")],
+            miscInfo: Pathway(name: "AVID",
+                              features: "\u{29BF} ",
+                              courses: "\u{29BF} AVID 9\n\n\u{29BF} AVID 10\n\n\u{29BF} AVID 11\n\n\u{29BF} AVID 12",
+                              socialMedia: "insta:sbhsdons,fb:sbhsdons",
+                              donationLink: "https://www.foundationforsbhs.org/")))
+    */
         
     }
 }
