@@ -1,11 +1,11 @@
 {
   "images" : [
     {
-      "filename" : "adams.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
+      "filename" : "choirBack.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
